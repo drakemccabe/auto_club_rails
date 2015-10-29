@@ -1,0 +1,21 @@
+<h2> <%= event.name %> </h2>
+<p> <%= event.date %> </p>
+<p> <%= event.location %> </p>
+
+<table>
+<th>
+  <td> # </td>
+  <td> Name </td>
+  <td> Car </td>
+  <td> Note </td>
+</th>
+
+<% drivers.each_with_index do |driver, index| %>
+  <tr>
+    <td> <%= index + 1 %> </td>
+    <td> <%= driver.name %> </td>
+    <td> <%= driver.car %> </td>
+    <td> <%= driver.note %> </td>
+  </tr>
+<% end %>
+</table>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'homes#index'
 
   resources :events do
-    resources :drivers, only: [:show]
+    resources :drivers, only: [:index]
   end
 
   resources :payments, only: [:create]

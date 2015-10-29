@@ -23,7 +23,7 @@ class StripePayment
     event1.drivers << driver
 
     unless @params[:event_id2].nil?
-      event2 = Event.find(@params[:event_id1])
+      event2 = Event.find(@params[:event_id2])
       event2.drivers << driver
     end
   end
