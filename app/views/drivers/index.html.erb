@@ -2,11 +2,13 @@
 <p> <%= event.date %> </p>
 <p> <%= event.location %> </p>
 
+<%= link_to "Download CSV", event_path(event, :format => :csv) %>
+
 <table>
 <th>
-  <td> # </td>
   <td> Name </td>
   <td> Car </td>
+  <td> Email </td>
   <td> Note </td>
 </th>
 
@@ -15,6 +17,7 @@
     <td> <%= index + 1 %> </td>
     <td> <%= driver.name %> </td>
     <td> <%= driver.car %> </td>
+    <td> <%= driver.email %> </td>
     <td> <%= driver.note %> </td>
   </tr>
 <% end %>
