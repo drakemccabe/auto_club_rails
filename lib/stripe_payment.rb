@@ -16,7 +16,7 @@ class StripePayment
 
   def add_driver
     event1 = Event.find(@params[:event_id1])
-    driver = Driver.create(name: @params[:stripeBillingName],
+    driver = Driver.create(name: @params[:name],
                            email: @params[:stripeEmail],
                            car: @params[:car],
                            note: @params[:note])

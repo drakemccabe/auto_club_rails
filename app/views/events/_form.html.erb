@@ -1,17 +1,23 @@
 <form action="/payments" method="POST" class="form-inline">
-  <script
+  <label> Register For The Event Here! </label>
+  <input type="hidden" name="amount" value="<%= amount %>">
+  <input type="hidden" name="event_id1" value="<%= event_id1 %>">
+  <input type="hidden" name="event_id2" value="<%= event_id2 %>">
+  <label> Enter Car </label>
+  <input type="text" name="car">
+  <label> Enter Name </label>
+  <input type="text" name="name">
+  <label> Leave a Note </label>
+  <input type="text" name="note">
+ <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
     data-image="http://www.wblibraryfriends.org/wp-content/uploads/2015/06/fol.png"
     data-name="Club Loose North"
-    data-description=""
+    data-description="<%= name %>"
     data-amount="<%= amount %>"
     data-locale="auto"
-    data-billing-address="true"
+    data-billing-address="false"
     data-label="<%= label %>">
   </script>
-  <label> Register For Event! </label>
-  <input type="hidden" name="amount" value="<%= amount %>">
-  <input type="hidden" name="event_id1" value="<%= event_id1 %>">
-  <input type="hidden" name="event_id2" value="<%= event_id2 %>">
 </form>

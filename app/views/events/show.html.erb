@@ -2,8 +2,8 @@
 <%= @event.price %>
 <%= @event.location %>
 
-<%= render "form", amount: "1500", label: " $15 ", event_id1: @event.id, event_id2: nil %>
+<%= render "form", amount: "1500", label: " $15 ", event_id1: @event.id, event_id2: nil, name: @event.name %>
 
 <% unless @two_pack.nil? %>
-  <%= render "form", amount: "1500", label: " $15 ", event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last %>
+  <%= render "form", amount: "1500", label: " $15 ", event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last, name: @two_pack.name %>
 <% end %>
