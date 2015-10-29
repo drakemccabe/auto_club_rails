@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :drivers, only: [:show]
   end
 
-  resources :payments, only: [:index, :create]
+  resources :payments, only: [:create]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

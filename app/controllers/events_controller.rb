@@ -7,9 +7,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    binding.pry
     if @event.is_bundle?
-      @two_pack = BundlePack.new(date_check(@event)).pack
+      @two_pack = BundlePack.new(@event.date_check).pack
     end
   end
 
@@ -18,7 +17,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
     new_event = Event.new(event_params)
 
     if new_event.save

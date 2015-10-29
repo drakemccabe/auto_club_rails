@@ -8,13 +8,13 @@ class Event < ActiveRecord::Base
   validates :location, presence: true
 
   def is_bundle?
-    date_check.nil?
+    date_check.present?
   end
 
   def date_check
-    matches = []
+    matches = [self]
     Event.where.not(date: self.date).each do |entry|
-      if entry.date == event + 1 || entry.date == event - 1
+      if entry.date == self.date + 1 || entry.date == self.date - 1
         matches << entry
       end
     end

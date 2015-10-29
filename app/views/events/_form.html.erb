@@ -1,0 +1,17 @@
+<form action="/payments" method="POST" class="form-inline">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+    data-image="http://www.wblibraryfriends.org/wp-content/uploads/2015/06/fol.png"
+    data-name="Club Loose North"
+    data-description=""
+    data-amount="<%= amount %>"
+    data-locale="auto"
+    data-billing-address="true"
+    data-label="<%= label %>">
+  </script>
+  <label> Register For Event! </label>
+  <input type="hidden" name="amount" value="<%= amount %>">
+  <input type="hidden" name="event_id1" value="<%= event_id1 %>">
+  <input type="hidden" name="event_id2" value="<%= event_id2 %>">
+</form>
