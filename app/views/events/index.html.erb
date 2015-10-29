@@ -2,20 +2,13 @@
               <div class="clock"></div>
 
               <script type="text/javascript">
-
-              var request = $.ajax({
-                method: "GET",
-                url: "/api/next-event.json",
-                dataType: "text"
-                });
-
-                console.log(request)
-
-  var clock = $('.clock').FlipClock(<%= @next_event %>, {
-              clockFace: 'DailyCounter',
-              countdown: true,
-              showSeconds: false
-              });
+                window.onload = function() {
+                var clock = $('.clock').FlipClock(<%= @next_event %>, {
+                            clockFace: 'DailyCounter',
+                            countdown: true,
+                            showSeconds: false
+               });
+              };
               </script>
               <h2> Until Club Loose North! </h2>
 
