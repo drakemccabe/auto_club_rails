@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @events = Event.where("date > current_date").order(:date).limit(3)
@@ -32,7 +32,13 @@ class EventsController < ApplicationController
   end
 
   def update
-    Event.find(params[:id]).update(event_params)
+    event = Event.find(params[:id])
+    if params[:message].present?
+      email = UpdateMail.new(params[:message], event)
+      email.send!
+    else
+      event.update(event_params)
+    end
     flash[:message] = "Event Updated"
     redirect_to event_path(params[:id])
   end

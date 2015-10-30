@@ -3,7 +3,8 @@ class PaymentsController < ApplicationController
     payment = StripePayment.new(params)
     payment.charge
     if payment.successful?
-      payment.add_driver
+      driver = payment.add_driver
+      JoinMail.new(driver).send!
     else
       redirect_to events_path(params[:id])
     end
