@@ -1,6 +1,7 @@
 <%= @event.name %>
 <%= @event.price %>
 <%= @event.location %>
+<%= @event.date.strftime("%a, %b #{@event.date.day.ordinalize}") %>
 
 <% if user_signed_in? %>
   <%= link_to "View Drivers", event_drivers_path(@event) %>,
@@ -14,10 +15,21 @@
 <% end %>
 <% end %>
 
+<% e = @event.date %>
+<% t = DateTime.new(e.year,e.month,e.day - 1,8,0,0,'-4') %>
+<% if Time.now < t %>
+  <h3> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %>
+
 <%= render "form", amount: "1500", event_id1: @event.id, event_id2: nil, name: @event.name %>
 
 <% unless @two_pack.nil? %>
-  <h3> There's also an event on <%= @two_pack.dates.first.strftime("%a, %b #{@two_pack.dates.first.day.ordinalize}") %> </h3>
+  <h3> There's also an event on <%= @two_pack.dates.last.strftime("%a, %b #{@two_pack.dates.last.day.ordinalize}") %> </h3>
   <h3> Drive both and save! </h3>
   <%= render "form", amount: "1500", event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last, name: @two_pack.name %>
+<% end %>
+
+<% else %>
+
+  <h2> Event Registration Closed </h2>
+
 <% end %>
