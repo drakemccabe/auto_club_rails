@@ -7,6 +7,11 @@
   <%= link_to "Edit Event", edit_event_path(@event) %>,
   <%= button_to "Delete Event", { action: "destroy", id: @event.id },
                                 method: :delete, data: { confirm: "Are you sure?" } %>
+  <%= form_tag "/events/#{@event.id}", method: "patch", action: "update" do %>
+  <%= label_tag "Send message to drivers:" %>
+  <%= text_area_tag :message, "warning: this field will send an email out to all drivers." %>
+  <%= submit_tag "Send", data: { confirm: "Are you sure?" } %>
+<% end %>
 <% end %>
 
 <%= render "form", amount: "1500", event_id1: @event.id, event_id2: nil, name: @event.name %>
