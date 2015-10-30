@@ -1,0 +1,102 @@
+
+.ended {
+  opacity: 0.2;
+}
+
+
+
+.block img {
+  position: relative;
+    margin: auto;
+    min-height: 180%;
+    min-width: 100%;
+      -webkit-transform: scale(2.7);
+    -webkit-transform-origin: 50% 50%;
+    width: 142.857143%;
+
+    /* For the following settings we set 100%, but it can be higher if needed
+    See the answer's update */
+    left: -10%;
+    right: -10%;
+    top: 70%;
+    bottom: -10%;
+  }
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 80em;
+}
+
+.time-line {
+    margin: 0; padding: 0;
+    list-style: none;
+}
+
+.overlay {
+    position: absolute;
+    top: 1em;
+    left: 0;
+    background-color: black;
+    color: white;
+}
+
+.block {
+    position: relative;
+    display: block;
+    width: 50%;
+    float: left;
+    border: 1px solid black;
+      overflow: hidden;
+}
+
+.block img {
+    display: inline-block;
+    width: 600px;
+    float: left;
+}
+
+
+@media (min-width: 30em) {
+
+    .block {
+        width: 33.333333%;
+    }
+
+} /* ====================== */
+
+@media (min-width: 40em) {
+
+    .block {
+        width: 25%;
+    }
+
+} /* ====================== */
+
+
+@media (min-width: 50em) {
+
+    .block {
+        width: 20%;
+    }
+
+} /* ====================== */
+
+
+@media (min-width: 60em) {
+
+    .block {
+        width: 16.666666%;
+    }
+
+} /* ====================== */
+
