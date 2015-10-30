@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   respond_to :csv
 
   def index

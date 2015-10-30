@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
   def index
     @events = Event.where("date > current_date").order(:date).limit(3)
-    event = @events.first.date
-    @next_event = next_event_time(event)
   end
 
   def show
@@ -20,17 +20,30 @@ class EventsController < ApplicationController
     new_event = Event.new(event_params)
 
     if new_event.save
-      #flash
+      redirect_to new_event
     else
-      #flash
+      flash[:error] = new_event.errors.full_messages.join(", ")
+      redirect_to root_path
     end
   end
 
-  private
-
-  def next_event_time(event_time)
-    ((event_time - Date.today).to_i * 86400) + 32400
+  def edit
+    render :new, locals: { :@event => Event.find(params[:id]) }
   end
+
+  def update
+    Event.find(params[:id]).update(event_params)
+    flash[:message] = "Event Updated"
+    redirect_to event_path(params[:id])
+  end
+
+  def destroy
+    Event.find(params[:id]).destroy
+    flash[:alert] = "Event Destroyed"
+    redirect_to event_path(params[:id])
+  end
+
+  private
 
   def event_params
     params.require(:event).permit(:id, :price, :name, :date, :location)

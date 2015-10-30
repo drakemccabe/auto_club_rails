@@ -2,6 +2,13 @@
 <%= @event.price %>
 <%= @event.location %>
 
+<% if user_signed_in? %>
+  <%= link_to "View Drivers", event_drivers_path(@event) %>,
+  <%= link_to "Edit Event", edit_event_path(@event) %>,
+  <%= button_to "Delete Event", { action: "destroy", id: @event.id },
+                                method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+
 <%= render "form", amount: "1500", event_id1: @event.id, event_id2: nil, name: @event.name %>
 
 <% unless @two_pack.nil? %>
