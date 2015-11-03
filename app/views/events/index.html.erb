@@ -1,39 +1,44 @@
-<div class="jumbotron">
-              <div class="clock"></div>
 
-              <script type="text/javascript">
-                window.onload = function() {
-                var clock = $('.clock').FlipClock(<%= @next_event %>, {
-                            clockFace: 'DailyCounter',
-                            countdown: true,
-                            showSeconds: false
-               });
-              };
-              </script>
-              <h2> Until Club Loose North! </h2>
+<div class="col-md-12">
+      <div class="row">
+        <div class="span4"></div>
+        <div class="span8">
+           <div class="wrapper">
+          <ul class="time-line">
+
+             <% @events.each_with_index do |event, index| %>
+
+               <li><a class="block <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
+            <img alt="timeline image"
+            src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>"/>
+
+            <h2 class="overlay" style="color:white;"><%= event.date.strftime("%a, %m/%d") %></h2>
+        </a></li>
+
+      <% end %>
+
+      <style>
+
+          .block img {
+            height: 200px;
+            width: 200px;
+          }
+
+          .overlay {
+            font-size: 200%;
+
+          .leftblock {
+            width: 50%;
+              float: right;
+          }
+
+      </style>
+
+        </ul> <!-- .time-line -->
+        </div> <!-- .wrapper -->
+
+        </div>
+      </div>
+      </div>
 
 
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-            </div>
-            <div class="row marketing">
-            <% @events.each do |event| %>
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
-                        <img src="http://www.clubloose-north.com/blue.jpg" alt="">
-                        <div>
-                          <h3> <%= event.date.strftime("%A, %b %d") %> </h3>
-                          <h3> <%= event.name %> </h3>
-                          <p><a href="/event/<%=event.id%>" class="btn btn-primary" role="button">Register</a> </p>
-                        </div>
-                    </div>
-                </div>
-          <% end %>
-            </div>
-
- <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/JawYdjINtoY"></iframe>
-                    </div>
-                    <h3>Welcome!</h3>
-                    <p>ClubLoose is heading North! “No one does it like Club Loose” From keeping drifting alive in Jersey to owning the track with their signature style, everyone comes to Club Loose events for one thing. To have a blast and not give a f*ck.  Come one come all for the best New Hampshire Drifting around! If you’re on facebook don’t forget to join our official CLN page here. It is a pleasure to be part of the Clubloose family and I hope to see you all at the track. Live Free or Die!</p>
-                    <small>Joe Grencho <cite title="Source Title">Clubloose North</cite></small>
-                </blockquote>
