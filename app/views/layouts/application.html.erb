@@ -6,26 +6,27 @@
   <%= csrf_meta_tags %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target="nav">
 
-  <nav class="top-bar">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">AutoClubRails</a></h1>
-      </li>
-    </ul>
-
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/events">Drive</a></li>
+        <li><a href="#">Watch</a></li>
+        <li><a href="#">Rules</a></li>
+         <%- if current_user -%>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
       </ul>
-    </section>
-  </nav>
+    </div>
+  </div>
+</nav>
+
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
