@@ -1,0 +1,44 @@
+
+<div class="col-md-12">
+      <div class="row">
+        <div class="span4"></div>
+        <div class="span8">
+           <div class="wrapper">
+          <ul class="time-line">
+
+             <% @events.each_with_index do |event, index| %>
+
+               <li><a class="block <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
+            <img alt="timeline image"
+            src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>"/>
+
+            <h2 class="overlay" style="color:white;"><%= event.date.strftime("%a, %m/%d") %></h2>
+        </a></li>
+
+      <% end %>
+
+      <style>
+
+          .block img {
+            height: 200px;
+            width: 200px;
+          }
+
+          .overlay {
+            font-size: 200%;
+
+          .leftblock {
+            width: 50%;
+              float: right;
+          }
+
+      </style>
+
+        </ul> <!-- .time-line -->
+        </div> <!-- .wrapper -->
+
+        </div>
+      </div>
+      </div>
+
+

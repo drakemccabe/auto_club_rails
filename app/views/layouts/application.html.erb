@@ -8,6 +8,7 @@
 </head>
 <body data-spy="scroll" data-target="nav">
 
+  <% unless current_page?(controller: 'homes', action: 'index') %>
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -26,6 +27,7 @@
     </div>
   </div>
 </nav>
+  <% end %>
 
 
   <%- flash.each do |key, value| -%>

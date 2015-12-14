@@ -1,63 +1,294 @@
-
-        <section id="content-2-1" class="content-block content-2-1 bgdrift">
-            <div class="container text-center">
-                <a href="/events" class="btn btn-outline btn-outline-xl outline-light">Upcoming Events</a>
-            </div>
-            <!-- /.container -->
-        </section>
-
-        <section id="promo-2" class="content-block promo-2 bg-image-cover">
-            <div class="coming-soon text-center" style="display: block;">
-                <div class="row countDown">
-                    <div class="countDown-wrap">
-                        <span class="digits">89</span>
-                        <input class="countDown-input day" data-max="90">
-                        <div class="digits-label">days</div>
-                    </div>
-                    <div class="countDown-wrap">
-                        <span class="digits">23</span>
-                        <input class="countDown-input hour">
-                        <div class="digits-label">hours</div>
-                    </div>
-                    <div class="countDown-wrap">
-                        <span class="digits">54</span>
-                        <input class="countDown-input minute">
-                        <div class="digits-label">minutes</div>
-                    </div>
-                    <div class="countDown-wrap">
-                        <span class="digits">30</span>
-                        <input class="countDown-input second">
-                        <div class="digits-label">seconds</div>
+        <section id="content-3-3" class="content-block-nopad content-3-3">
+            <div class="overlay overlay-blue">
+                <div class="container text-center">
+                    <h2>Club Loose North, 2015</h2>
+                    <h1>THANKS FOR ANOTHER INCREDIBLE SEASON.</h1>
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <h1><span class="fa fa-heart pomegranate"></span> Club loose north</h1>
+                        <div class="col-md-6">
+</div>
                     </div>
                 </div>
-                <!-- /.row / counter -->
+                <!-- /.container -->
             </div>
+        </section>
+        <section id="promo-2" class="content-block promo-2 min-height-600px bg-deepocean bg-image-cover">
             <div class="container">
+                <div class="coming-soon text-center">
+                    <div class="row countDown" style="overflow: show;">
+                        <video id='video1' controls='controls' autoplay width='0'>
+                            <source src="https://13-lvl3-pdl.vimeocdn.com/01/2113/3/85569724/224036863.mp4?expires=1448244832&token=095e45dc2cae198cdda6b" />
+                            I'm sorry, you're using a shitty browser.
+                        </video>
+                        <div class="countDown-wrap">
+                            <section id="content-3-2" class="content-block-nopad content-3-2" style="overflow: hidden;">
+                                <canvas id='mycanvas'></canvas>
+                                <a href="#">
+                                    <div class="overlay overlay-orange">
+                                        <div class="container text-left">
+                                            <div class="digits-label">
+                                                D R I V E
+</div>
+                                        </div>
+                                        <!-- /.container -->
+                                    </div>
+                                </a>
+                            </section>
+                            <span class="digits"></span>
+                            <input class="countDown-input day">
+                            <div class="digits-label">days</div>
+                        </div>
+                        <div class="countDown-wrap">
+                            <section id="content-3-1" class="content-block-nopad content-3-1" style="overflow: hidden;">
+                                <canvas id='mycanvas2' class="mycanvas"></canvas>
+                                <div class="overlay overlay-aqua">
+                                    <div class="container text-left">
+                                        <div class="digits-label">
+                                            W A T C H
+</div>
+                                    </div>
+                                    <!-- /.container -->
+                                </div>
+                            </section>
+                            <span class="digits"></span>
+                            <input class="countDown-input hour">
+                            <div class="digits-label">hours</div>
+                        </div>
+                        <div class="countDown-wrap">
+                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden;">
+                                <canvas id='mycanvas3' class="mycanvas"></canvas>
+                                <div class="overlay overlay-blue">
+                                    <div class="container text-left">
+                                        <div class="digits-label">
+                                            S H O P
+</div>
+                                    </div>
+                                    <!-- /.container -->
+                                </div>
+                            </section>
+                            <span class="digits"></span>
+                            <input class="countDown-input minute">
+                            <div class="digits-label">minutes</div>
+                        </div>
+                        <div id="no4" class="countDown-wrap">
+                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden;">
+                                <canvas id='mycanvas4' class="mycanvas"></canvas>
+                                <div class="overlay overlay-blue">
+                                    <div class="container text-left">
+                                        <div class="digits-label">
+                                            M S S G
+</div>
+                                    </div>
+                                    <!-- /.container -->
+                                </div>
+                            </section>
+                            <span class="digits"></span>
+                            <input class="countDown-input second">
+                            <div class="digits-label">seconds</div>
+                        </div>
+                    </div>
+                    <!-- /.row / counter -->
+                </div>
                 <!-- /.coming-soon -->
+                <script>
+        
+
+document.addEventListener('DOMContentLoaded', function(){
+    var v = document.getElementById('video1');
+    var canvas = document.getElementById('mycanvas');
+    var context = canvas.getContext('2d');
+
+    var cw = 640;
+    var ch = 480;
+    canvas.width = cw;
+    canvas.height = ch;
+
+    v.addEventListener('play', function(){
+        draw(this,context,cw,ch);
+    },false);
+
+},false);
+
+function draw(v,c,w,h) {
+    if(v.paused || v.ended) return false;
+    c.drawImage(v,0,0,w,h);
+    setTimeout(draw,20,v,c,w,h);
+}
+        
+
+        document.addEventListener('DOMContentLoaded', function(){
+    var v = document.getElementById('video1');
+    var canvas = document.getElementById('mycanvas2');
+    var context = canvas.getContext('2d');
+
+    var cw = 640;
+    var ch = 480;
+    canvas.width = cw;
+    canvas.height = ch;
+
+    v.addEventListener('play', function(){
+        draw(this,context,cw,ch);
+    },false);
+
+},false);
+
+function draw(v,c,w,h) {
+    if(v.paused || v.ended) return false;
+    c.drawImage(v,0,0,w,h);
+    setTimeout(draw,20,v,c,w,h);
+}
+        
+        
+          document.addEventListener('DOMContentLoaded', function(){
+    var v = document.getElementById('video1');
+    var canvas = document.getElementById('mycanvas3');
+    var context = canvas.getContext('2d');
+
+    var cw = 640;
+    var ch = 480;
+    canvas.width = cw;
+    canvas.height = ch;
+
+    v.addEventListener('play', function(){
+        draw(this,context,cw,ch);
+    },false);
+
+},false);
+
+function draw(v,c,w,h) {
+    if(v.paused || v.ended) return false;
+    c.drawImage(v,0,0,w,h);
+    setTimeout(draw,20,v,c,w,h);
+}
+        
+        
+        
+          document.addEventListener('DOMContentLoaded', function(){
+    var v = document.getElementById('video1');
+    var canvas = document.getElementById('mycanvas4');
+    var context = canvas.getContext('2d');
+
+    var cw = 640;
+    var ch = 480;
+    canvas.width = cw;
+    canvas.height = ch;
+
+    v.addEventListener('play', function(){
+        draw(this,context,cw,ch);
+    },false);
+
+},false);
+
+function draw(v,c,w,h) {
+    if(v.paused || v.ended) return false;
+    c.drawImage(v,0,0,w,h);
+    setTimeout(draw,20,v,c,w,h);
+}
+        
+       
+    </script>
+                <style>
+                    #mycanvas {
+                    top: -100px;
+                    bottom: -300px;
+                    left: -100px;
+                    right: 0;
+                    width: 200%;
+                    height: 600px;
+                    position: absolute;
+                    }
+                    #mycanvas2 {
+                    top: -100px;
+                    bottom: -300px;
+                    left: -100px;
+                    right: 0;
+                    width: 200%;
+                    height: 600px;
+                    position: absolute;
+                    }
+                    #mycanvas3 {
+                    top: -100px;
+                    bottom: -300px;
+                    left: -100px;
+                    right: 0;
+                    width: 200%;
+                    height: 600px;
+                    position: absolute;
+                    }
+                    #mycanvas4 {
+                    top: -100px;
+                    bottom: -300px;
+                    left: -100px;
+                    right: 0;
+                    width: 200%;
+                    height: 600px;
+                    position: absolute;
+                    }
+                    #video1 {
+                    position: absolute;
+                    left: 0;
+                    }
+                    .content-3-2 {
+                    }
+                    @keyframes bounce {
+                    0%{
+                    margin-top: 200px;
+                    width: 50px;
+                    height: 50px;
+                    }
+                    20%{
+                    width: 40px;
+                    height: 60px;
+                    }
+                    40%{
+                    width: 40px;
+                    height: 60px;
+                    }
+                    60%{
+                    width: 45px;
+                    height: 55px;
+                    }
+                    80%{
+                    width: 50px;
+                    height: 50px;
+                    }
+                    100%{
+                    margin-top: 0px;
+                    width: 50px;
+                    height: 50px;
+                    }
+                    }
+</style>
             </div>
             <!-- /.container -->
         </section>
-        <section id="content-1-7" class="content-1-7 content-block">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-bootstrap.png">
+        <section id="content-2-1" class="content-block content-2-1 bg-deepocean">
+            <div class="container text-center">
+                <h2>Until <strong>Club Loose North</strong></h2>
+                <p class="lead"></p>
+            </div>
+            <!-- /.container -->
+        </section>
+        <section class="content-block-nopad bg-deepocean footer-wrap-1-2">
+            <div class="container footer-1-2">
+                <div class="big-social row">
+                    <div class="col-sm-2 col-sm-offset-3 social-item facebook">
+                        <a href="http://facebook.com/"><i class="social-icon fa fa-2x fa-facebook"></i><h4 class="action">Like us</h4></a>
                     </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-less.png">
+                    <div class="col-sm-2 social-item twitter">
+                        <a href="http://twitter.com/"><i class="social-icon fa fa-2x fa-twitter"></i><h4 class="action">Follow us</h4></a>
                     </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-sass.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-yeoman.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-bower.png">
-                    </div>
-                    <div class="col-md-2 col-sm-4">
-                        <img alt="Client Logo" src="images/partner-logos/logo-jquery.png">
+                    <div class="col-sm-2 social-item google">
+                        <a href="http://plus.google.com/"><i class="social-icon fa fa-2x fa-google-plus"></i><h4 class="action">+1 us</h4></a>
                     </div>
                 </div>
-                <!--end of row-->
             </div>
+            <!-- /.container -->
+        </section>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
+    </body>     
+</html>

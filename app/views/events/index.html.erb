@@ -1,44 +1,54 @@
+ <section id="content-3-32" class="content-block-nopad content-3-3">
+            <div class="overlay overlay-blue">
+                <div class="container text-center">
+                    <h2>Trust in a team that's with you all the way</h2>
+                    <h1>Upcoming Events</h1>
+                </div>
+                <!-- /.container -->
+            </div>
+        </section>
 
-<div class="col-md-12">
-      <div class="row">
-        <div class="span4"></div>
-        <div class="span8">
-           <div class="wrapper">
-          <ul class="time-line">
-
-             <% @events.each_with_index do |event, index| %>
-
-               <li><a class="block <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
-            <img alt="timeline image"
-            src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>"/>
-
-            <h2 class="overlay" style="color:white;"><%= event.date.strftime("%a, %m/%d") %></h2>
-        </a></li>
-
-      <% end %>
-
-      <style>
-
-          .block img {
-            height: 200px;
-            width: 200px;
-          }
-
-          .overlay {
-            font-size: 200%;
-
-          .leftblock {
-            width: 50%;
-              float: right;
-          }
-
-      </style>
-
-        </ul> <!-- .time-line -->
-        </div> <!-- .wrapper -->
-
-        </div>
-      </div>
-      </div>
-
-
+        <section class="content-block team-1 team-1-1 bg-deepocean" style="color: white;">
+            <div class="container">
+                <div class="row">
+                   <% @events.each_with_index do |event, index| %>
+                    <div class="col-sm-4 team-member-wrap">
+                        <div class="team-member">
+                            <div class="team-details">
+                              <a <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
+                                <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
+                                <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" /></a>
+                                <h3> Spring Moves </h3>
+                                <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $10 to Spectate</p>
+                                <ul class="social social-dark">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <a href="#"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> 
+                                        </div>
+                                        <div class="col-md-6">
+                                            <li>
+                                                <a href="#">Register to Drive</a>
+                                            </li>                                             
+                                        </div>
+                                    </div>
+                                </ul>
+                                <!-- /.social -->
+                            </div>
+                        </div>
+                    </div>
+                  <% end %>
+                    <!-- /.team-member-wrap -->
+                    <!-- /.team-member-wrap -->
+                    <!-- /.team-member-wrap -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
+    </body>     
+</html>
