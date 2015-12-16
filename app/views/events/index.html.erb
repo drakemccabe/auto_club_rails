@@ -18,7 +18,7 @@
                               <a <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
                                 <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
                                 <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" /></a>
-                                <h3> Spring Moves </h3>
+                                                                                                                                            <h3> <%= event.name %> </h3>
                                 <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $10 to Spectate</p>
                                 <ul class="social social-dark">
                                     <div class="row">

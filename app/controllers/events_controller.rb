@@ -10,6 +10,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.is_bundle?
       @two_pack = BundlePack.new(@event.date_check).pack
+      binding.pry
     end
   end
 

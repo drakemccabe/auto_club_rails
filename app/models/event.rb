@@ -12,12 +12,16 @@ class Event < ActiveRecord::Base
   end
 
   def date_check
-    matches = [self]
+    matches = []
     Event.where.not(date: self.date).each do |entry|
       if entry.date == self.date + 1 || entry.date == self.date - 1
         matches << entry
       end
     end
-    matches
+    if matches.empty?
+      matches = nil
+    else
+      matches.unshift(self)
+    end
   end
 end

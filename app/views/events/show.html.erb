@@ -1,7 +1,7 @@
    <section id="content-3-1" class="content-block-nopad content-3-1">
             <div class="overlay overlay-aqua">
                 <div class="container text-center">
-                    <h2>JOIN US ON NOVEMBER 21st for</h2>
+                    <h2>Join us on <%= @event.date.strftime("%a, %b #{@event.date.day.ordinalize}") %> for</h2>
                     <h1><%= @event.name %></h1>
                 </div>
                 <!-- /.container -->
@@ -48,18 +48,22 @@
                             <li>
                     <%= render "form", amount: "1500", event_id1: @event.id, event_id2: nil, name: @event.name %>
                             </li>
-                            <li>&nbsp;</li>
                           <li>
                              <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
                           </li>
                         </ul>
-                        <div class="price-footer">
+                        <!-- <div class="price-footer">
                             <a href="#" class="btn btn-info">Register &amp; Pay</a>
-                        </div>
+                        </div> -->
                     </div>
-                  <% end %>
+                  
+                  <% unless @two_pack.nil? %>
+
+  
+
+
                     <div class="col-sm-4 price-block">
-                        <h3>NOVEMBER 21st</h3>
+                      <h3><%= @two_pack.dates.first.strftime("%a, %b #{@two_pack.dates.first.day.ordinalize}") %> and <%= @two_pack.dates.last.strftime("%a, %b #{@two_pack.dates.last.day.ordinalize}") %></h3>
                         <div class="price pastel-green">
                             <div class="price-figure">
                                 <h4>SATURDAY</h4>
@@ -67,21 +71,19 @@
                             </div>
                         </div>
                         <ul class="features">
-                            <li>$99 to drive</li>
+                          <li>$<%= @two_pack.price %> to drive</li>
                             <li>
-                                <input type="text" class="form-control" placeholder="Make / Model">                                                                                                                                                                                                        Car
+                                <%= render "form", amount: "1500", event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last, name: @two_pack.name %>
                             </li>
-                            <li>
-                                <input type="text" class="form-control" placeholder="First / Last">                                                                                                                                                                                                        Name
-                            </li>
-                            <li>
-                                <input type="text" class="form-control" placeholder="Zipcode">                                                                                                                                                                                                        City
-                            </li>
-                            <li>&nbsp;</li>
+      
                         </ul>
                         <div class="price-footer">
                             <a href="#" class="btn btn-info">Register &amp; Pay</a>
                         </div>
+                      <% end %>
+                      <% else %>
+                      <h1 style="color: white;"> Event Registration Closed </h1>
+                      <% end %>
                     </div>                     
                 </div>
                 <!-- /.row -->
