@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   end
 
   resources :payments, only: [:create]
+  
+  resources :schedules, only: [:index]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

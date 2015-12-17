@@ -8,11 +8,13 @@
 </head>
 <body data-spy="scroll" data-target="nav">
 
-  <% unless current_page?(controller: 'homes', action: 'index') %>
-  <nav class="navbar navbar-default">
+
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">Club Loose North</a>
     </div>
     <div>
       <ul class="nav navbar-nav">
@@ -27,7 +29,6 @@
     </div>
   </div>
 </nav>
-  <% end %>
 
 
   <%- flash.each do |key, value| -%>
@@ -37,6 +38,32 @@
   <%- end -%>
 
   <%= yield %>
+  
+  
+  <section class="content-block-nopad bg-deepocean footer-wrap-1-3">
+            <div class="container footer-1-3">
+                <div class="col-md-4 pull-left">
+                    <img src="http://www.clubloose-north.com/cln-header1.png" class="brand-img img-responsive">
+                    <ul class="social social-light">
+                        <li>
+                            <a href="#"><i class="fa fa-2x fa-facebook"></i></a>
+                        </li>
+                    </ul>
+                    <!-- /.social -->
+                </div>
+                <div class="col-md-3 pull-right">
+                    <p class="address-bold-line"><i class="fa fa-heart pomegranate"></i> Club Loose North</p>
+                    <p class="address small">1122 NH-106,<br>
+					Loudon, NH 03307</p>
+
+
+                </div>
+                <div class="col-xs-12 footer-text">
+                    <p>Please take a few minutes to read our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+            <!-- /.container -->
+        </section>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
