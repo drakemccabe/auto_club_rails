@@ -9,15 +9,24 @@
         </section>
 
 <% if user_signed_in? %>
-  <%= link_to "View Drivers", event_drivers_path(@event) %>,
-  <%= link_to "Edit Event", edit_event_path(@event) %>,
-  <%= button_to "Delete Event", { action: "destroy", id: @event.id },
-                                method: :delete, data: { confirm: "Are you sure?" } %>
+        <section class="content-block" style="margin-left: 50%; margin-right: 50%; width: 100%;">
+  <div style="width: 500px; background-color: #d3d3d3;">
+    <div class="container">
+    <h2> Admin Box </h2>
+  <ul>
+    <li> <%= link_to "View Drivers", event_drivers_path(@event) %>,</li>
+  <li><%= link_to "Edit Event", edit_event_path(@event) %>,</li>
+  <li><%= button_to "Delete Event", { action: "destroy", id: @event.id },
+  method: :delete, data: { confirm: "Are you sure?" } %></li></ul>
   <%= form_tag "/events/#{@event.id}", method: "patch", action: "update" do %>
   <%= label_tag "Send message to drivers:" %>
+  <br>
   <%= text_area_tag :message, "warning: this field will send an email out to all drivers." %>
   <%= submit_tag "Send", data: { confirm: "Are you sure?" } %>
 <% end %>
+</div>
+</div>
+</section>
 <% end %>
 
         <section class="content-block pricing-table-1 pricing-table-1-2 bg-deepocean">
@@ -90,6 +99,6 @@
             </div>
             <!-- /.container -->
         </section>
-        
+
             </body>
 </html>
