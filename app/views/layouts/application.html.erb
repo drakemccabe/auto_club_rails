@@ -28,27 +28,27 @@
             <!-- Navigation -->
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active nav-item">
+                  <li class="<%= "active" if current_page?("/") %> nav-item">
                         <a href="/">Home</a>
                     </li>
-                    <li class="nav-item">
+                  <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Drive</a>
                     </li>
-                    <li class="nav-item">
+                  <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Watch</a>
                     </li>
-                   <li class="nav-item">
+                  <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Rules</a>
                     </li>
-                    <li class="nav-item">
+                  <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Shop</a>
                     </li>
-                   <li class="nav-item">
+                  <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Contact</a>
                     </li>
                     <%- if current_user -%>
            <li class="nav-item"><a href="#"><strong>| Admin Tools:</strong></a></li>
-           <li class="nav-item"><%= link_to 'New Event', new_event_path %></li>
+                  <li class="<%= "active" if current_page?("/events/new") %> nav-item"><%= link_to 'New Event', new_event_path %></li>
           <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- end -%>
                 </ul>
@@ -84,6 +84,7 @@
                 </div>
                 <div class="col-md-3 pull-right">
                     <p class="address-bold-line"><i class="fa fa-heart pomegranate"></i> Club Loose North</p>
+                   <p class="address small">New Hampshire Motor Speedway<br>
                     <p class="address small">1122 NH-106,<br>
 					Loudon, NH 03307</p>
 
