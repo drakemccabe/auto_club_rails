@@ -3,17 +3,25 @@
   <div class="row">
     <div class="large-4 columns">
       <br><br><br>
+      
+   <p> Use this box to insert a new event. Note that events which take place back to back will be automatically made into bundle packs and discounted. </p>
 
   <%= form_for @event do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+      <%= f.text_field :name, value: "required, visible to public" %>
     <%= f.label :date %>
     <%= f.date_field :date %>
     <%= f.label :price %>
-    <%= f.number_field :price %>
+      <%= f.number_field :price, value: "00" %>
     <%= f.label :location %>
-    <%= f.text_field :location %>
+      <%= f.text_field :location, value: "NHMS" %>
+      <br>
+      <%= f.label :facebook_url %>
+    <%= f.text_field :facebook_url, value: "use HTTP, do not leave blank"  %>
+      <%= f.label :photo_url %>
+    <%= f.text_field :photo_url, value: "use HTTP, do not leave blank" %>
     <%= f.submit "Add Event" %>
+      
   <% end %>
   </div>
   </div>

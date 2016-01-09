@@ -1,8 +1,67 @@
- <section id="content-3-32" class="content-block-nopad content-3-3">
+ <section id="content-3-32" class="content-block-nopad content-3-3" style="background: url('http://www.clubloose-north.com/blue.jpg') center no-repeat;">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
-                    <h2>Trust in a team that's with you all the way</h2>
+                    <h2>New Hampshire Motor Speedway</h2>
                     <h1>Upcoming Events</h1>
+                  <ul>
+                    <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li>
+                    <ul class="calendar">
+                      <li><div class="calbox"><div class="top">APR</div><div class="bottom">SAT 9<br>SAT 18</div></div></li>
+                        <li><div class="calbox"><div class="top">MAY</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">JUN</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">JUL</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                   
+                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">NOV</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                                            
+                    </ul>
+                    
+                    <style>
+                      .calendar li {
+                        display: inline;
+                        list-style-type: none;
+          
+                        padding: 10px;
+                        
+                      }
+                      
+                      .middle_icon {
+                        height: 50px;
+                        width: 50px;
+                      }
+                      
+                      .calendar li:nth-child(n+4) {
+                        float: left;
+                      }
+                      
+                       .calendar li:nth-child(-n+4) {
+                        float: right;
+                      }
+                      
+                      .calbox {
+                        border: 1px solid #d3d3d3;
+                        margin: 10px;
+                        width: 80px;
+                        
+                      }
+                      .top {
+                        top: 0px;
+                        background-color: #d3d3d3;
+                        text-transform: uppercase;
+                      }
+                      
+                    .bottom {
+                      
+                     bottom: 0px;
+                    }
+                    </style>
+                    <% if false %>
+                    <li> Frequently Asked Questions </li>
+                    <li> Rulebook </li>
+                      <% end %>
+                  </ul>
                 </div>
                 <!-- /.container -->
             </div>
@@ -12,22 +71,27 @@
             <div class="container">
                 <div class="row">
                    <% @events.each_with_index do |event, index| %>
+                  <% if event.date > Date.today + 1 %>
                     <div class="col-sm-4 team-member-wrap">
                         <div class="team-member">
                             <div class="team-details">
-                              <a <%= "ended" unless event.date > Date.today %>" href="/events/<%= event.id %>">
-                                <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
+                              <a href="/events/<%= event.id %>">
+                                <% if event.date > Date.today %>
+                                  <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
+                                <% else %>
+                                <h4>ENDED</h4>
+                                <% end %>
                                 <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" /></a>
                                                                                                                                             <h3> <%= event.name %> </h3>
                                 <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $10 to Spectate</p>
                                 <ul class="social social-dark">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <a href="#"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> 
+                                          <a href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> 
                                         </div>
                                         <div class="col-md-6">
                                             <li>
-                                                <a href="#">Register to Drive</a>
+                                                             <a href="/events/<%= event.id %>">Register to Drive</a>
                                             </li>                                             
                                         </div>
                                     </div>
@@ -36,6 +100,7 @@
                             </div>
                         </div>
                     </div>
+                  <% end %>
                   <% end %>
                     <!-- /.team-member-wrap -->
                     <!-- /.team-member-wrap -->
