@@ -49,7 +49,9 @@
                     <%- if current_user -%>
            <li class="nav-item"><a href="#"><strong>| Admin Tools:</strong></a></li>
                   <li class="<%= "active" if current_page?("/events/new") %> nav-item"><%= link_to 'New Event', new_event_path %></li>
+                    <li class="nav-item"><a href="/alerts/new">New Alert</a></li>
           <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+                
         <%- end -%>
                 </ul>
                 <!--//nav-->
@@ -61,6 +63,14 @@
     <!--// End Navbar -->
 </header>
 
+  
+  <% @alerts.each do |alert| %>
+    <% if alert.exp_date > Date.today %>
+    <div class="alert alert-danger" role="alert" style="margin: 0px;">
+      <h3 style="text-align: center"><strong>Attention: <%= alert.body %></strong></h3>
+    </div>
+    <% end %>
+  <% end %>
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :drivers, only: [:index]
   end
+  
+  resources :alerts, only: [:new, :create]
 
   resources :payments, only: [:create]
   

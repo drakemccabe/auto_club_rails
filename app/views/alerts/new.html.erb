@@ -1,0 +1,9 @@
+<p> Write an alert here. It will show up on every page on the site until the experation date is past. Then, it will dissappear. Be careful because these cannot be edited once they are put out. Also consider using the event email function to contact drivers directly. </p>
+
+<%= form_for @alert do |f| %>
+<%= f.label :body %>
+<%= f.text_field :body, value: "write here" %>
+<%= f.label :exp_date %>
+<%= f.date_field :exp_date %>
+<%= f.submit "Add Alert" %>
+  <% end %>
