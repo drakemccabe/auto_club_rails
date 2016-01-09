@@ -3,28 +3,46 @@
                 <div class="container text-center">
                     <h2>New Hampshire Motor Speedway</h2>
                     <h1>Upcoming Events</h1>
-                  <ul>
-                    <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li>
+                  
+                  <!-- <   <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li> -->
+                  
+                  
+                  <div style="height: 100px;">
+                  <ul class="buttonnav">
+                    
+                                        <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table; float: left;"> <a href="/" style="color: #d3d3d3;"><h3>  DRIVER FAQ  </h3></a> </div></li>
+
+                    
+                                        <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table;  float: right;"> <a href="/" style="color: #d3d3d3;"><h3>  RULEBOOK  </h3></a> </div></li></ul></div>
+
+                  <div></div>
+                    
                     <ul class="calendar">
                       <li><div class="calbox"><div class="top">APR</div><div class="bottom">SAT 9<br>SAT 18</div></div></li>
                         <li><div class="calbox"><div class="top">MAY</div><div class="bottom">SAT 9, SAT 10</div></div></li>
                       <li><div class="calbox"><div class="top">JUN</div><div class="bottom">SAT 9, SAT 10</div></div></li>
                       <li><div class="calbox"><div class="top">JUL</div><div class="bottom">SAT 9, SAT 10</div></div></li>
                    
-                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">SAT 9, SAT 10</div></div></li>
                       <li><div class="calbox"><div class="top">NOV</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">SAT 9, SAT 10</div></div></li>
+                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">SAT 9, SAT 10</div></div></li>
                                             
                     </ul>
                     
                     <style>
                       .calendar li {
-                        display: inline;
+                        display: inline-block;
                         list-style-type: none;
           
                         padding: 10px;
                         
+                      }
+                      
+                      .buttonnav li {
+                        display: inline;
+                        list-style-type: none;
+                        padding: 10px;
                       }
                       
                       .middle_icon {
@@ -32,11 +50,11 @@
                         width: 50px;
                       }
                       
-                      .calendar li:nth-child(n+4) {
+                      .calendar li:nth-child(-n+4) {
                         float: left;
                       }
                       
-                       .calendar li:nth-child(-n+4) {
+                       .calendar li:nth-child(-n+8):nth-child(n+5) {
                         float: right;
                       }
                       
