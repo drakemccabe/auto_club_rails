@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all.order(:date).limit(20)
     @photos = HTTParty.get("https://api.instagram.com/v1/tags/clubloosenorth/media/recent?client_id=bb3a3552e0a14419ae2805c8d0735728")
+    @calendar = @events.group_by { |t| t.date.beginning_of_month }.stringify_keys
   end
 
   def show
@@ -47,12 +48,12 @@ class EventsController < ApplicationController
   def destroy
     Event.find(params[:id]).destroy
     flash[:alert] = "Event Destroyed"
-    redirect_to event_path(params[:id])
+    redirect_to events_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:id, :price, :name, :date, :location)
+    params.require(:event).permit(:id, :price, :name, :date, :location, :facebook_url, :photo_url)
   end
 end

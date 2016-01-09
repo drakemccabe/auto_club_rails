@@ -2,7 +2,7 @@
 
 <%= form_for @alert do |f| %>
 <%= f.label :body %>
-<%= f.text_field :body, value: "write here" %>
+<%= f.text_field :body %>
 <%= f.label :exp_date %>
 <%= f.date_field :exp_date %>
 <%= f.submit "Add Alert" %>

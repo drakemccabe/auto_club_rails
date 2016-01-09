@@ -15,6 +15,9 @@
 
  */
 
+.calendar a {
+  color: black;
+}
 
 #promo-2 {
     padding: 0px;

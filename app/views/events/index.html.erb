@@ -16,18 +16,124 @@
                                         <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table;  float: right;"> <a href="/" style="color: #d3d3d3;"><h3>  RULEBOOK  </h3></a> </div></li></ul></div>
 
                   <div></div>
+   
                     
                     <ul class="calendar">
-                      <li><div class="calbox"><div class="top">APR</div><div class="bottom">SAT 9<br>SAT 18</div></div></li>
-                        <li><div class="calbox"><div class="top">MAY</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">JUN</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">JUL</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                   
-                      <li><div class="calbox"><div class="top">NOV</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">SAT 9, SAT 10</div></div></li>
-                                            
+                      
+                      <li><div class="calbox"><div class="top">APR</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-04-01"].present? %>
+                        <% @calendar["#{Date.today.year}-04-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                    
+
+                      
+                      <li><div class="calbox"><div class="top">MAY</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-05-01"].present? %>
+                        <% @calendar["#{Date.today.year}-05-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      <li><div class="calbox"><div class="top">JUN</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-06-01"].present? %>
+                        <% @calendar["#{Date.today.year}-06-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      <li><div class="calbox"><div class="top">JUL</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-07-01"].present? %>
+                        <% @calendar["#{Date.today.year}-07-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-08-01"].present? %>
+                        <% @calendar["#{Date.today.year}-08-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-09-01"].present? %>
+                        <% @calendar["#{Date.today.year}-09-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-10-01"].present? %>
+                        <% @calendar["#{Date.today.year}-10-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+                      
+                      
+                      <li><div class="calbox"><div class="top">NOV</div><div class="bottom">
+              
+                       <% if @calendar["#{Date.today.year}-11-01"].present? %>
+                        <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                        <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
+                              <br>
+                        <% end %>
+                        <% else %>
+                        <a href="/">NO</a><br><a href="/">EVENTS</a>
+                          <% end %>
+                        </div></div>
+                      </li>
+                      
+
                     </ul>
                     
                     <style>
