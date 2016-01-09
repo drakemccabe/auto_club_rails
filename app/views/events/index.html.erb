@@ -100,12 +100,14 @@
                                 <h4>ENDED</h4>
                                 <% end %>
                                 <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" /></a>
-                                                                                                                                            <h3> <%= event.name %> </h3>
+                                                                                                                                            <h3> <a href="/events/<%= event.id %>"><%= event.name %></a> </h3>
                                 <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $10 to Spectate</p>
                                 <ul class="social social-dark">
                                     <div class="row">
                                         <div class="col-md-6">
                                           <a href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> 
+                                          <br>
+                                          <a href="/">Add to Google Calendar</a>
                                         </div>
                                         <div class="col-md-6">
                                             <li>
