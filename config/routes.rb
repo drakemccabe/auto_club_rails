@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
   
   resources :alerts, only: [:new, :create]
+  
+  resources :pages, only: [:index, :show]
+  resources :spectators, only: [:index]
+  resources :faqs, only: [:index]
 
   resources :payments, only: [:create]
   
