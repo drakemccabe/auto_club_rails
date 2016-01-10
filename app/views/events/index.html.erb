@@ -10,10 +10,20 @@
                   <div style="height: 100px;">
                   <ul class="buttonnav">
                     
+                    <% if @params["n"] == "spectators" %>
+                    
+                     <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/spectators" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li>
+                  
+                    
+                    <% else %>
+                    
                                         <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table; float: left;"> <a href="/faqs" style="color: #d3d3d3;"><h3>  DRIVER FAQ  </h3></a> </div></li>
 
                     
-                                        <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table;  float: right;"> <a href="http://www.clubloose.com/clubloose/index.php/the-rules" style="color: #d3d3d3;"><h3>  RULEBOOK  </h3></a> </div></li></ul></div>
+                                        <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table;  float: right;"> <a href="http://www.clubloose.com/clubloose/index.php/the-rules" target="_blank" style="color: #d3d3d3;"><h3>  RULEBOOK  </h3></a> </div></li>
+                  
+                  <% end %>
+                    </ul></div>
 
                   <div></div>
    
@@ -194,6 +204,7 @@
         <section class="content-block team-1 team-1-1 bg-deepocean" style="color: white;">
             <div class="container">
                 <div class="row">
+                  <% if @events.any? %>
                    <% @events.each_with_index do |event, index| %>
                   <% if event.date > Date.today + 1 %>
                     <div class="col-sm-4 team-member-wrap">
@@ -225,7 +236,14 @@
                             </div>
                         </div>
                     </div>
+                  <% end%>
                   <% end %>
+                  <% else %>
+                  
+                  <div>
+                    <h1> No Events! </h1>
+                    <h2> Check Back Soon As We Get Closer To The Season </h2>
+                  </div>
                   <% end %>
                     <!-- /.team-member-wrap -->
                     <!-- /.team-member-wrap -->

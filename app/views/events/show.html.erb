@@ -53,10 +53,13 @@
                             </div>
                         </div>
                         <ul class="features">
-                            <li>$<%= @event.price %> to drive</li>
+                          <li>$<%= @event.price %> to pre-reg ($<%= @event.price + 25 %> at the door)</li>
                             <li>
                     <%= render "form", amount: "1500", event_id1: @event.id, event_id2: nil, name: @event.name %>
                             </li>
+                          <li>
+                            <p class="small">Note: The email you enter will be used for communication if an event is canceled or rescheduled. Club Loose North respects your privacy and will not distribute your email or use it for marketing.</p>
+                          </li>
                           <li>
                              <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
                           </li>
@@ -80,10 +83,13 @@
                             </div>
                         </div>
                         <ul class="features">
-                          <li>$<%= @two_pack.price %> to drive (Save $20!)</li>
+                          <li>$<%= @two_pack.price %> to pre-reg (Save $20!)</li>
                             <li>
                                 <%= render "form", amount: "1500", event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last, name: @two_pack.name %>
                             </li>
+                          <li>
+                            <p class="small">Note: The email you enter will be used for communication if an event is canceled or rescheduled. Club Loose North respects your privacy and will not distribute your email or use it for marketing.</p>
+                          </li>
                            <li>
                              <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
                           </li>
