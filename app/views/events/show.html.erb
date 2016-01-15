@@ -27,6 +27,26 @@
 </div>
 </div>
 </section>
+
+<section class="content-block" style="">
+  <div style="width: 500px; background-color: #d3d3d3; float: left">
+    <div class="container">
+    <h2> Admin Stats </h2>
+    <table>
+      <tr>
+        <td> Number of Drivers: </td>
+        <td> <%= @event.drivers.count %> </td>
+      </tr>
+      <tr>
+        <td> Total Revenue Collected </td>
+        <td> <%= "$#{@event.drivers.count * @event.price}" %> </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+</section>
+
+    
 <% end %>
 
         <section class="content-block pricing-table-1 pricing-table-1-2 bg-deepocean">
