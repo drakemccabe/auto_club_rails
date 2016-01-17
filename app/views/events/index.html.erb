@@ -1,37 +1,37 @@
- <section id="content-3-32" class="content-block-nopad content-3-3" style="background: url('http://www.clubloose-north.com/blue.jpg') center no-repeat;">
+ <section id="content-3-32" class="content-block-nopad content-3-3" style="background: url('http://www.drakemccabe.com/cln/images/blue.jpg') center no-repeat;">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
                     <h2>New Hampshire Motor Speedway</h2>
                     <h1>Upcoming Events</h1>
-                  
+
                   <!-- <   <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/spectators" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li> -->
-                  
-                  
+
+
                   <div style="height: 100px;">
                   <ul class="buttonnav">
-                    
+
                     <% if @params["n"] == "spectators" %>
-                    
+
                      <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/spectators" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li>
-                  
-                    
+
+
                     <% else %>
-                    
+
                                         <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table; float: left;"> <a href="/faqs" style="color: #d3d3d3;"><h3>  DRIVER FAQ  </h3></a> </div></li>
 
-                    
+
                                         <li><div style="border: 1px solid #d3d3d3; min-width: 40%; border-radius: 25px; display: table;  float: right;"> <a href="http://www.clubloose.com/clubloose/index.php/the-rules" target="_blank" style="color: #d3d3d3;"><h3>  RULEBOOK  </h3></a> </div></li>
-                  
+
                   <% end %>
                     </ul></div>
 
                   <div></div>
-   
-                    
+
+
                     <ul class="calendar">
-                      
+
                       <li><div class="calbox"><div class="top">APR</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-04-01"].present? %>
                         <% @calendar["#{Date.today.year}-04-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -42,11 +42,11 @@
                           <% end %>
                         </div></div>
                       </li>
-                    
 
-                      
+
+
                       <li><div class="calbox"><div class="top">MAY</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-05-01"].present? %>
                         <% @calendar["#{Date.today.year}-05-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -57,10 +57,10 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
+
+
                       <li><div class="calbox"><div class="top">JUN</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-06-01"].present? %>
                         <% @calendar["#{Date.today.year}-06-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -71,10 +71,10 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
+
+
                       <li><div class="calbox"><div class="top">JUL</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-07-01"].present? %>
                         <% @calendar["#{Date.today.year}-07-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -85,10 +85,10 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
+
+
                       <li><div class="calbox"><div class="top">AUG</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-08-01"].present? %>
                         <% @calendar["#{Date.today.year}-08-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -99,10 +99,10 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
+
+
                       <li><div class="calbox"><div class="top">SEP</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-09-01"].present? %>
                         <% @calendar["#{Date.today.year}-09-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -113,10 +113,10 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
+
+
                       <li><div class="calbox"><div class="top">OCT</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-10-01"].present? %>
                         <% @calendar["#{Date.today.year}-10-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -127,11 +127,11 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
-                      
-                      
+
+
+
                       <li><div class="calbox"><div class="top">NOV</div><div class="bottom">
-              
+
                        <% if @calendar["#{Date.today.year}-11-01"].present? %>
                         <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
                         <a href="/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
@@ -142,52 +142,52 @@
                           <% end %>
                         </div></div>
                       </li>
-                      
+
 
                     </ul>
-                    
+
                     <style>
                       .calendar li {
                         display: inline-block;
                         list-style-type: none;
-          
+
                         padding: 10px;
-                        
+
                       }
-                      
+
                       .buttonnav li {
                         display: inline;
                         list-style-type: none;
                         padding: 10px;
                       }
-                      
+
                       .middle_icon {
                         height: 50px;
                         width: 50px;
                       }
-                      
+
                       .calendar li:nth-child(-n+4) {
                         float: left;
                       }
-                      
+
                        .calendar li:nth-child(-n+8):nth-child(n+5) {
                         float: right;
                       }
-                      
+
                       .calbox {
                         border: 1px solid #d3d3d3;
                         margin: 10px;
                         width: 80px;
-                        
+
                       }
                       .top {
                         top: 0px;
                         background-color: #d3d3d3;
                         text-transform: uppercase;
                       }
-                      
+
                     .bottom {
-                      
+
                      bottom: 0px;
                     }
                     </style>
@@ -221,15 +221,15 @@
                                 <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $10 to Spectate</p>
                                 <ul class="social social-dark" >
                                     <div class="row">
-                       
+
                                           <li style="display: inline-block;"><a href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> </li>
-                                             
+
                                       <li style="display: inline-block;"><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$10+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
                                                                                              <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="/events/<%= event.id %>">Register to Drive</a>
-                                          
-                               
-                  
+
+
+
                                     </div>
                                 </ul>
                                 <!-- /.social -->
@@ -239,7 +239,7 @@
                   <% end%>
                   <% end %>
                   <% else %>
-                  
+
                   <div>
                     <h1> No Events! </h1>
                     <h2> Check Back Soon As We Get Closer To The Season </h2>
@@ -253,10 +253,10 @@
             </div>
             <!-- /.container -->
         </section>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>         
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>         
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>
         <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-        <script type="text/javascript" src="js/bskit-scripts.js"></script>         
-    </body>     
+        <script type="text/javascript" src="js/bskit-scripts.js"></script>
+    </body>
 </html>
