@@ -4,16 +4,20 @@ Rails.application.routes.draw do
   resources :events do
     resources :drivers, only: [:index]
   end
-  
+
   resources :alerts, only: [:new, :create]
-  
+
   resources :pages, only: [:index, :show]
+
   resources :spectators, only: [:index]
+
   resources :faqs, only: [:index]
 
   resources :payments, only: [:create]
-  
+
   resources :schedules, only: [:index]
+
+  resources :thanks, only: [:index]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
