@@ -146,7 +146,35 @@
 
                     </ul>
 
-                    <h1> Register To Drive </h1>
+
+                    <script type="text/javascript">
+
+
+
+
+                       window.onload = function() {
+                         var width1 = $(window).width();
+
+                         if (width1 < 500 ) {
+                           $("#content-3-323").height(850);
+                         } else {
+                           $("#content-3-323").height(100);
+                         }
+                       }
+
+                       window.onresize = function() {
+                         var width = $(window).width();
+
+                         if (width < 500 ) {
+                           $("#content-3-323").height(850);
+                         } else {
+                           $("#content-3-323").height(100);
+                         }
+                       }
+
+
+
+                    </script>
 </div>
 
                     <style>
