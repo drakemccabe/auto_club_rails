@@ -10,3 +10,20 @@
 #content-3-3 {
    background-image: url('https://scontent-lga3-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s2048x2048/11802740_1158668330826305_3472817413419080269_o.jpg');
 }
+
+#no4 {
+}
+
+@media screen and (max-width: 480px) {
+  #no4 {
+    display: none;
+  }
+
+  .calendar {
+
+ }
+}
+
+#content-3-323 {
+  min-height: 1000px;
+}
