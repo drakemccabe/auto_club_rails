@@ -130,7 +130,7 @@
 
 
 
-                      <li><div class="calbox"><div class="top">NOV</div><div class="bottom">
+                      <li id="lastli"><div class="calbox"><div class="top">NOV</div><div class="bottom">
 
                        <% if @calendar["#{Date.today.year}-11-01"].present? %>
                         <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
@@ -157,8 +157,11 @@
 
                          if (width1 < 500 ) {
                            $("#content-3-323").height(850);
+                           $(".calendar li").addClass("nofloat");
+
                          } else {
                            $("#content-3-323").height(100);
+                            $(".calendar li").addClass("hidethis");
                          }
                        }
 
@@ -167,8 +170,10 @@
 
                          if (width < 500 ) {
                            $("#content-3-323").height(850);
+                           $(".calendar li").addClass("nofloat");
                          } else {
                            $("#content-3-323").height(100);
+                            $(".calendar li").removeClass("nofloat");
                          }
                        }
 
@@ -178,12 +183,28 @@
 </div>
 
                     <style>
+
+                    .hidethis {
+                      display: none !important;
+                    }
+
+                      #lastli {
+                        position: absoulte;
+                        right: 10px;
+
+                      }
+
                       .calendar li {
                         display: inline-block;
                         list-style-type: none;
-
                         padding: 10px;
 
+                      }
+
+                      .nofloat {
+                        float: none !important;
+                        display: table;
+                        margin: auto 0;
                       }
 
                       .buttonnav li {
