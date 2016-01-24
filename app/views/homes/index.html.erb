@@ -12,16 +12,16 @@
                 <!-- /.container -->
             </div>
         </section>
-        <section id="promo-2" class="content-block promo-2 min-height-600px bg-deepocean bg-image-cover" data-end-date="<%= @event.date.strftime("%b %d, %Y") %>">
+        <section id="promo-2" class="content-block promo-2 min-height-600px bg-deepocean bg-image-cover" data-end-date="<%= @event.date.strftime("%b %d, %Y") %>" >
             <div class="container">
                 <div class="coming-soon text-center">
                     <div class="row countDown" style="overflow: show;">
-                        <video id='video1' controls='controls' autoplay width='0'>
-                            <source src="http://www.sample-videos.com/video/mp4/360/big_buck_bunny_360p_5mb.mp4" />
+                        <video id='video1' controls='controls' autoplay width='0' loop>
+                            <source src="http://s3.amazonaws.com/clubloosenorth/cln/videos/cln.mp4" />
                             I'm sorry, you're using a shitty browser.
                         </video>
                         <div class="countDown-wrap">
-                            <section id="content-3-2" class="content-block-nopad content-3-2" style="overflow: hidden;">
+                            <section id="content-3-2" class="content-block-nopad content-3-2" style="overflow: hidden; background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/home1.jpg'); background-position: 50% 120%;">
                                 <canvas id='mycanvas'></canvas>
                                 <a href="/events">
                                     <div class="overlay overlay-orange">
@@ -39,7 +39,7 @@
                             <div class="digits-label">days</div>
                         </div>
                         <div class="countDown-wrap">
-                            <section id="content-3-1" class="content-block-nopad content-3-1" style="overflow: hidden;">
+                            <section id="content-3-1" class="content-block-nopad content-3-1" style="overflow: hidden; background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/home2.jpg'); background-position: 50% 120%;">
                                 <canvas id='mycanvas2' class="mycanvas"></canvas>
                                 <a href="/events">
                                 <div class="overlay overlay-aqua">
@@ -57,7 +57,7 @@
                             <div class="digits-label">hours</div>
                         </div>
                         <div class="countDown-wrap">
-                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden;">
+                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden; background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/home3.jpg'); background-position: 50% 120%;">
                                 <canvas id='mycanvas3' class="mycanvas"></canvas>
                                 <a href="http://www.clubloosenorth.bigcartel.com/category/shop">
                                 <div class="overlay overlay-blue">
@@ -75,7 +75,7 @@
                             <div class="digits-label">minutes</div>
                         </div>
                         <div id="no4" class="countDown-wrap">
-                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden;">
+                            <section id="content-3-3" class="content-block-nopad content-3-3" style="overflow: hidden; background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/home4.jpg'); background-position: 90% 90%;">
                                 <canvas id='mycanvas4' class="mycanvas"></canvas>
                                 <a href="/contact">
                                 <div class="overlay overlay-blue">
@@ -274,11 +274,9 @@ function draw(v,c,w,h) {
             <div class="container footer-1-2">
                 <div class="big-social row">
                     <div class="col-sm-2 col-sm-offset-4 social-item facebook">
-                        <a href="http://facebook.com/"><i class="social-icon fa fa-2x fa-facebook"></i><h4 class="action">Like us</h4></a>
+                        <a href="https://www.facebook.com/groups/clubloosenorth/"><i class="social-icon fa fa-2x fa-facebook"></i><h4 class="action">Like us</h4></a>
                     </div>
-                    <div class="col-sm-2 social-item twitter">
-                        <a href="http://twitter.com/"><i class="social-icon fa fa-2x fa-twitter"></i><h4 class="action">Follow us</h4></a>
-                    </div>
+                   
 
                 </div>
             </div>
