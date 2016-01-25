@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :spectators, only: [:index]
 
-  resources :faqs, only: [:index]
+  resources :faqs, only: [:index, :show]
 
   resources :payments, only: [:create]
 
