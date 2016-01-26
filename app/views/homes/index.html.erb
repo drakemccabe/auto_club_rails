@@ -1,13 +1,17 @@
         <section id="content-3-3" class="content-block-nopad content-3-3">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
-                    <h2>Club Loose North, 2015</h2>
-                  <h1>THANKS FOR ANOTHER INCREDIBLE SEASON.</h1>
+                    <h2><%= @box.subtext %></h2>
+                  <h1><%= @box.title %></h1>
+                  <% if user_signed_in? %>
+                   <a href="/boxes/1/edit"><h2>EDIT HOMEPAGE BOX</h2></a>
+                <!--  THANKS FOR ANOTHER INCREDIBLE SEASON.
                     <div class="col-md-6 col-md-offset-3 text-center">
                         <h1><span class="fa fa-heart pomegranate"></span> Club loose north</h1>
                         <div class="col-md-6">
 </div>
-                    </div>
+                    </div> -->
+                    <% end %>
                 </div>
                 <!-- /.container -->
             </div>
@@ -276,7 +280,7 @@ function draw(v,c,w,h) {
                     <div class="col-sm-2 col-sm-offset-4 social-item facebook" style="display: table; margin: 0 auto;">
                         <a href="https://www.facebook.com/groups/clubloosenorth/"><i class="social-icon fa fa-2x fa-facebook"></i><h4 class="action">Like us</h4></a>
                     </div>
-                   
+
 
                 </div>
             </div>

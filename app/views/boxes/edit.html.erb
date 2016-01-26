@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+
+<h2> Edit Home Page Content </h2>
+
+<%= form_for @box do |f| %>
+  <%= f.label :subtext %>
+    <%= f.text_field :subtext %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :photo %>
+    <%= f.number_field :photo %>
+  <%= f.submit "Update Homepage Content" %>
+
+<% end %>
+
+</div>
+</div>

@@ -2,6 +2,7 @@ class HomesController < ApplicationController
   def index
     @event = Event.where("date > current_date").first
     @next_event = next_event_time(@event.date)
+    @box = Box.find(1)
   end
 
   private
