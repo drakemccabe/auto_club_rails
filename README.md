@@ -18,3 +18,9 @@ Setup
 
 * Grab API keys from Stripe and Mailgun (See ENV Example)
 * As of now, Rails C and create an initial event and box (homepage content)
+
+Contributing
+
+* Check out any open issues or create a new feature request
+* Create a new branch off master
+* Submit a pull request
