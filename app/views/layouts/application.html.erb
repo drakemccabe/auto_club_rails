@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Clubloose North is the heart of New England Drifting. Join us at New Hampshire Speedway for our next event.">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -45,7 +46,7 @@
                   <li class="<%= "active" if current_page?("/events") %> nav-item">
                         <a href="/events">Drive</a>
                     </li>
-                  <li class="<%= "active" if current_page?("/events?n=spectators") %> nav-item">
+                  <li class="<%= "" if current_page?("/events?n=spectators") %> nav-item">
                         <a href="/events?n=spectators">Watch</a>
                     </li>
                   <li class="<%= "active" if current_page?("/faqs/1") %> nav-item">
