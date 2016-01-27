@@ -1,4 +1,6 @@
 class BoxesController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update]
+
  def edit
    @box = Box.find(1)
  end

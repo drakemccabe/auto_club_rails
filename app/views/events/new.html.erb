@@ -3,7 +3,7 @@
   <div class="row">
     <div class="large-4 columns">
       <br><br><br>
-      
+
    <p> Use this box to insert a new event. Note that events which take place back to back will be automatically made into bundle packs and discounted. Use full HTTP for links for facebook and photo url. Those fields are required. The name field is publically visible.  </p>
 
   <%= form_for @event do |f| %>
@@ -21,9 +21,11 @@
       <%= f.label :photo_url %>
     <%= f.text_field :photo_url %>
     <%= f.submit "Add Event" %>
-      
+
   <% end %>
   </div>
   </div>
+
+  <p> If you are editing an event, note that any change in date will automatically send out an email to all drivers alerting them. </p>
 </div>
 </section>
