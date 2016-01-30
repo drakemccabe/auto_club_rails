@@ -4,8 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   
   before_action :get_alerts
+  before_action :set_footer
   
   def get_alerts
     @alerts = Alert.all
+  end
+  
+  def set_footer
+    @box = Box.find(1)
   end
 end

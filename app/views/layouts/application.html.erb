@@ -126,9 +126,15 @@
 
                 </div>
               <div class="col-md-6">
+                <% if @box.footer_image.nil? %>
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/reJnyaD1bLA"></iframe>
                 </div>
+                <% else %>
+                <div class="img-responsive">
+                <img style="width: 100%; height: 100%;" src="<%= @box.footer_image %>">
+                </div>
+                <% end %>
               </div>
                 <div class="col-xs-12 footer-text">
                   <style>

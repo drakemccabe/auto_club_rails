@@ -12,6 +12,6 @@ class BoxesController < ApplicationController
  end
 
  def box_params
-   params.require(:box).permit(:subtext, :title, :photo)
+   params.require(:box).permit(:subtext, :title, :photo, :video_url, :footer_image)
  end
 end
