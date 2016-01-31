@@ -1,4 +1,5 @@
-        <section id="content-3-3" style="background: url('<%= @box.photo %>');" class="content-block-nopad content-3-3">
+<% unless @box.photo.empty? %>  
+      <section id="content-3-3" style="background: url('<%= @box.photo %>');" class="content-block-nopad content-3-3">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
                     <h2><%= @box.subtext %></h2>
@@ -16,6 +17,7 @@
                 <!-- /.container -->
             </div>
         </section>
+<% end %>
         <section id="promo-2" class="content-block promo-2 min-height-600px bg-deepocean bg-image-cover" data-end-date="<%= @event.date.strftime("%b %d, %Y") %>" >
             <div class="container">
                 <div class="coming-soon text-center">
