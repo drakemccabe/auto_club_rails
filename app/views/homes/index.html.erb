@@ -1,4 +1,11 @@
-<% unless @box.photo.empty? %>  
+<% if @box.photo.empty? %>
+   <% if user_signed_in? %>
+      <section id="content-3-3">
+           <a href="/boxes/1/edit"><h2>EDIT HOMEPAGE BOX</h2></a>
+      </section>
+   <% end %>
+
+<% else %>
       <section id="content-3-3" style="background: url('<%= @box.photo %>');" class="content-block-nopad content-3-3">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
