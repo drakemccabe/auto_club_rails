@@ -423,7 +423,9 @@
                     <div class="col-sm-4 team-member-wrap">
                         <div class="team-member">
                             <div class="team-details">
-                                <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" /></a>
+                              <% unless Rails.env.development? %>
+                                <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" />
+                              <% end %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">
                                 <% if event.date > Date.today %>
                                   <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>

@@ -3,7 +3,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order(:date).limit(20)
-    @photos = HTTParty.get("https://api.instagram.com/v1/tags/clubloosenorth/media/recent?client_id=bb3a3552e0a14419ae2805c8d0735728")
+    unless Rails.env.development?
+      @photos = HTTParty.get("https://api.instagram.com/v1/tags/clubloosenorth/media/recent?client_id=bb3a3552e0a14419ae2805c8d0735728")
+    end
     @calendar = @events.group_by { |t| t.date.beginning_of_month }.stringify_keys
     @params = params
   end
