@@ -1,4 +1,4 @@
- <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat; height: 600px;">
+ <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat; height: 650px;">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
                     <h2>New Hampshire Motor Speedway</h2>
@@ -7,7 +7,7 @@
                   <!-- <   <li><div style="border: 1px solid #d3d3d3; width: 40%; border-radius: 25px; display: table; margin: 0 auto;"> <a href="/spectators" style="color: #d3d3d3;"><h3>  SPECTATOR FAQ  </h3></a> </div></li> -->
 
 
-                  <div style="height: 100px;">
+                  <div style="height: 50px;">
                   <ul class="buttonnav">
 
                     <% if @params["n"] == "spectators" %>
@@ -153,8 +153,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">APR</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-04-01"].present? %>
+                              <% @calendar["#{Date.today.year}-04-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -170,8 +170,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">MAY</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-05-01"].present? %>
+                              <% @calendar["#{Date.today.year}-05-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -187,8 +187,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">JUN</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-06-01"].present? %>
+                              <% @calendar["#{Date.today.year}-06-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -205,8 +205,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">JUL</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-07-01"].present? %>
+                              <% @calendar["#{Date.today.year}-07-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -223,8 +223,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">AUG</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-08-01"].present? %>
+                              <% @calendar["#{Date.today.year}-08-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -241,8 +241,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">SEP</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-09-01"].present? %>
+                              <% @calendar["#{Date.today.year}-09-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>
@@ -259,8 +259,8 @@
 
                             <li id="lastli"><div class="calbox"><div class="top">OCT</div><div class="bottom">
 
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
+                             <% if @calendar["#{Date.today.year}-10-01"].present? %>
+                              <% @calendar["#{Date.today.year}-10-01"].each do |item| %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
                                     <br>
                               <% end %>

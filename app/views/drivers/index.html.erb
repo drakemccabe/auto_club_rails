@@ -3,16 +3,16 @@
 <p> Date: <%= event.date %> </p>
 <p> Location: <%= event.location %> </p>
 
-<%= link_to "Download CSV", event_path(event, :format => :csv) %>
+<a href="/events/<%= event.id %>/drivers.csv">Download CSV</a>
 
 <table class="table">
-<th>
+<tr>
   <td> # </td>
   <td> Name </td>
   <td> Car </td>
   <td> Email </td>
-  <td> Note </td>
-</th>
+  <td> Location </td>
+</tr>
 
 <% drivers.each_with_index do |driver, index| %>
   <tr>
