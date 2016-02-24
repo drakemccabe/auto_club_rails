@@ -1,6 +1,6 @@
 class AlertsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  
+
    def new
      @alert = Alert.new
   end
@@ -15,7 +15,7 @@ class AlertsController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def alert_params
     params.require(:alert).permit(:body, :exp_date)
   end

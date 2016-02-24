@@ -12,6 +12,7 @@
   <td> Car </td>
   <td> Email </td>
   <td> Location </td>
+  <td> Move to Event </td>
 </tr>
 
 <% drivers.each_with_index do |driver, index| %>
@@ -21,6 +22,18 @@
     <td> <%= driver.car %> </td>
     <td> <%= driver.email %> </td>
     <td> <%= driver.note %> </td>
+    <td>
+      <form id="<%= driver.id %>updateform" method="post" action="/spectators" onsubmit="return confirm('Are you sure you want to move this driver?');">
+        <input type="hidden" name="event_id" value="<%= event.id %>">
+        <select name="new_event_id" form="<%= driver.id %>updateform">
+        <% @events.each do |event| %>
+          <option value="<%= event.id %>"><%= event.name %></option>
+          <% end %>
+        </select>
+        <input type="hidden" name="driver_id" value="<%= driver.id %>">
+        <input type="submit">
+    </form>
+  </td>
   </tr>
 <% end %>
 </table>
