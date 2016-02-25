@@ -23,8 +23,13 @@ class StripePayment
     event1.drivers << driver
 
     unless @params[:event_id2].blank?
+      new_driver = Driver.create(name: @params[:name],
+                                 email: @params[:stripeEmail],
+                                 car: @params[:car],
+                                 note: @params[:note])
+
       event2 = Event.find(@params[:event_id2])
-      event2.drivers << driver
+      event2.drivers << new_driver
     end
     driver
   end

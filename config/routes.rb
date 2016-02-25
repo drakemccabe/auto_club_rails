@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :pages, only: [:index, :show]
 
-  resources :spectators, only: [:index]
+  resources :spectators, only: [:index, :create]
 
   resources :faqs, only: [:index, :show]
 
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :thanks, only: [:index]
 
   resources :boxes, only: [:edit, :update]
+
+  resources :moves, only: [:edit, :create]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
