@@ -1,4 +1,10 @@
-<section class="content-block">
+<body>
+
+<div class="row">
+  <div class="col-md-2">
+  </div>
+<div class="col-md-10">
+<section class="">
 <h2> <%= event.name %> </h2>
 <p> Date: <%= event.date %> </p>
 <p> Location: <%= event.location %> </p>
@@ -12,6 +18,7 @@
   <td> Car </td>
   <td> Email </td>
   <td> Location </td>
+  <td> Joined On </td>
   <td> Move to Event </td>
 </tr>
 
@@ -22,19 +29,40 @@
     <td> <%= driver.car %> </td>
     <td> <%= driver.email %> </td>
     <td> <%= driver.note %> </td>
+    <td> <%= driver.updated_at.strftime('%b %d %I:%M %p') %> </td>
     <td>
       <form id="<%= driver.id %>updateform" method="post" action="/spectators" onsubmit="return confirm('Are you sure you want to move this driver?');">
         <input type="hidden" name="event_id" value="<%= event.id %>">
         <select name="new_event_id" form="<%= driver.id %>updateform">
-        <% @events.each do |event| %>
-          <option value="<%= event.id %>"><%= event.name %></option>
+        <% @events.each do |single_event| %>
+          <option <% if event.id == single_event.id %>selected <% end %>value="<%= single_event.id %>"><%= single_event.date %></option>
           <% end %>
         </select>
         <input type="hidden" name="driver_id" value="<%= driver.id %>">
-        <input type="submit">
+        <input type="submit" value="Move Driver">
     </form>
   </td>
   </tr>
 <% end %>
 </table>
+
+<h4> Manually Add Driver To Event </h4>
+
+<form id="newdriverform" action="/spectators" method="post" onsubmit="return confirm('Are you sure?');">
+  <input type="hidden" name="event_id" value="<%= event.id %>">
+  <input type="hidden" name="driver_id" value="">
+  <label>Name</label>
+  <input type="text-field" name="name">
+  <label>Email</label>
+  <input type="text-field" name="email">
+  <label>Zip</label>
+  <input type="text-field" name="note">
+  <label>Car</label>
+  <input type="text-field" name="car">
+  <input type="submit" value="Add Driver">
 </section>
+</div>
+<div class="col-md-2">
+</div>
+</div>
+</body>

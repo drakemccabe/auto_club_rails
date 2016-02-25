@@ -4,6 +4,7 @@ class DriversController < ApplicationController
 
   def index
     @events = Event.all
+    @new_driver = Driver.new
     event = Event.find(params[:event_id])
     drivers = event.drivers
     respond_to do |format|
@@ -13,7 +14,6 @@ class DriversController < ApplicationController
   end
 
   def create
-    binding.pry
     event = Event.find(params[:event_id])
     reg_driver = Driver.find(params[:driver_id])
     new_event = Event.find(params[:new_event_id])
