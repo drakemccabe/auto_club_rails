@@ -1,7 +1,7 @@
 require 'mailgun'
 
 class JoinMail
-  def initialize(driver)
+  def initialize(driver, new_driver)
     @driver = driver
     @new_driver = new_driver
     @mg_client = Mailgun::Client.new ENV["MAILGUN"]
@@ -11,7 +11,7 @@ class JoinMail
     {:from    => 'noreply@clubloose-north.com',
      :to      => @driver.email,
      :subject => 'Your Club Loose North Prereg',
-     :text    => "Hey #{@driver.name}, you\'re all clear to shred on " + events(driver) + events(new_driver) + "."}
+     :text    => "Hey #{@driver.name}, you\'re all clear to shred on " + events(@driver) + events(@new_driver) + "."}
   end
 
   def events(driver_var)
