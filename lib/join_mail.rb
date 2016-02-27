@@ -3,6 +3,7 @@ require 'mailgun'
 class JoinMail
   def initialize(driver)
     @driver = driver
+    @new_driver = new_driver
     @mg_client = Mailgun::Client.new ENV["MAILGUN"]
   end
 
@@ -10,15 +11,14 @@ class JoinMail
     {:from    => 'noreply@clubloose-north.com',
      :to      => @driver.email,
      :subject => 'Your Club Loose North Prereg',
-     :text    => "Hey #{@driver.name}, you\'re all clear to shred on " + events + "."}
+     :text    => "Hey #{@driver.name}, you\'re all clear to shred on " + events(driver) + events(new_driver) + "."}
   end
 
-  def events
-    if @driver.events.length == 2
-      @driver.events.first.date.strftime("%a, %b #{@driver.events.first.date.day.ordinalize}") +
-      " and " + @driver.events.last.date.strftime("%a, %b #{@driver.events.last.date.day.ordinalize}")
+  def events(driver_var)
+    if driver_var.nil?
+      return ""
     else
-      @driver.events.first.date.strftime("%a, %b #{@driver.events.first.date.day.ordinalize}")
+      driver_var.events.first.date.strftime("%a, %b #{@driver.events.first.date.day.ordinalize}")
     end
   end
 
