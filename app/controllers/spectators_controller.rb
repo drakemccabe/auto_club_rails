@@ -16,7 +16,7 @@ class SpectatorsController < ApplicationController
         new_driver = Driver.new reg_driver.dup.attributes.keep_if{|k,v| k!=:id}
         new_driver.save
         new_event.drivers << new_driver
-        flash[:success] = "Driver successfully moved"
+        flash[:error] = "Driver successfully moved"
         redirect_to "/events/#{new_event.id}/drivers"
       else
         d = Driver.new(name: params[:name],
@@ -28,7 +28,7 @@ class SpectatorsController < ApplicationController
         d.save
         event.drivers << d
         flash[:success] = "Driver Added"
-        redirect_to "/events/#{event.id}/drivers"
+          redirect_to "/events/#{event.id}/drivers"
       end
   end
 end
