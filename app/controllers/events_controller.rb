@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  #before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @events = Event.all.order(:date).limit(20)
@@ -22,14 +22,20 @@ class EventsController < ApplicationController
   end
 
   def create
-    new_event = Event.new(event_params)
+    binding.pry
+    puts "start params"
+    puts params
+    puts "end params"
+    head 200, content_type: "text/html"
+    return
+    #new_event = Event.new(event_params)
 
-    if new_event.save
-      redirect_to new_event
-    else
-      flash[:error] = new_event.errors.full_messages.join(", ")
-      redirect_to root_path
-    end
+    #if new_event.save
+    #  redirect_to new_event
+    #else
+    #  flash[:error] = new_event.errors.full_messages.join(", ")
+     # redirect_to root_path
+    #end
   end
 
   def edit
