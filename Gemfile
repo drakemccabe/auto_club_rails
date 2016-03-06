@@ -26,6 +26,7 @@ gem 'stripe'
 gem 'as_csv', '~> 2.0'
 
 gem 'mailgun-ruby'
+gem 'sendgrid-ruby'
 
 gem 'httparty'
 
