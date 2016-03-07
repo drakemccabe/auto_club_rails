@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
       client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
       
       mail = SendGrid::Mail.new do |m|
-  m.to = 'drakemccabe@gmail.com'
+  m.to = params[:email]
   m.from = 'noreply@clubloosenorth.com'
   m.subject = 'Your Club Loose North Driver Registration'
   m.html = message

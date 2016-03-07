@@ -45,8 +45,18 @@ class EventsController < ApplicationController
   def update
     event = Event.find(params[:id])
     if params[:message].present?
-      email = UpdateMail.new(params[:message], event)
-      email.send!
+       client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
+     
+      event.drivers.each do |driver|
+      mail = SendGrid::Mail.new do |m|
+        m.to = driver.email
+        m.from = 'noreply@clubloosenorth.com'
+        m.subject = 'Important Info About Your Club Loose North Registration.'
+        m.html = params[:message]
+      end
+        res = client.send(mail)
+      end
+    
     else
       event.update(event_params)
     end
