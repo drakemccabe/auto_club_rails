@@ -438,9 +438,9 @@
                                 <ul class="social social-dark" >
                                     <div class="row">
 
-                                          <li style="display: inline-block;"><a href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> </li>
+                                          <li style="display: inline-block;"><a target="_blank" href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> </li>
 
-                                      <li style="display: inline-block;"><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
+                                      <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
                                                                                              <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>
 
