@@ -22,20 +22,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
-    puts "start params"
-    puts params
-    puts "end params"
-    head 200, content_type: "text/html"
-    return
-    #new_event = Event.new(event_params)
 
-    #if new_event.save
-    #  redirect_to new_event
-    #else
-    #  flash[:error] = new_event.errors.full_messages.join(", ")
-     # redirect_to root_path
-    #end
+    new_event = Event.new(event_params)
+
+    if new_event.save
+      redirect_to new_event
+    else
+      flash[:error] = new_event.errors.full_messages.join(", ")
+      redirect_to root_path
+    end
   end
 
   def edit
