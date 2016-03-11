@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
     if payment.successful?
       drivers = payment.add_driver
       flash["message"] = "Thank You For Pre Registering"
-      redirect_to thanks_path
+      
       
       driver_class = JoinMail.new(drivers[0], drivers[1])
       message = driver_class.create_mssg
@@ -15,15 +15,14 @@ class PaymentsController < ApplicationController
       client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
       
       mail = SendGrid::Mail.new do |m|
-  m.to = params[:email]
-  m.from = 'noreply@clubloosenorth.com'
-  m.subject = 'Your Club Loose North Driver Registration'
-  m.html = message
-end
-
-      res = client.send(mail)
-      
-
+        m.to = params[:stripeEmail]
+        m.from = 'noreply@clubloosenorth.com'
+        m.subject = 'Your Club Loose North Driver Registration'
+        m.html = message
+      end
+     res = client.send(mail)      
+      redirect_to thanks_path
+     return 
       #sleep(1)
       #driver_class.send!
     else
