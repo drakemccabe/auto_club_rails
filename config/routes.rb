@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :boxes, only: [:edit, :update]
 
   resources :moves, only: [:edit, :create]
+  
+  resources :paypals, only: [:index, :create]
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

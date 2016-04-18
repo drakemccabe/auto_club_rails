@@ -1,7 +1,10 @@
 class Payment
-  def initialize(price, name)
-    @price = price
-    @name = name
+  def initialize(params)
+    @params = params
+  end
+  
+  def init
+    Paypal.sandbox! if Rails.env.development?
   end
 
   def p_options
@@ -14,21 +17,21 @@ class Payment
 
   def p_request
     Paypal::Express::Request.new(
-      :username   => "drakemccabe-facilitator_api1.gmail.com",
-      :password   => "7GNJR5P3GH22QE6Y",
-      :signature  => "An5ns1Kso7MWUdW4ErQKJJJ4qi4-Aqf0zLbZIpqMEqa2WuI8wxO0w0Iv"
+      :username   => ENV['PAYPAL_USR'],
+      :password   => ENV['PAYPAL_PW'],
+      :signature  => ENV['PAYPAL_SIG']
     )
   end
 
   def p_payment_request
     @payment_request = Paypal::Payment::Request.new(
       :currency_code => :USD,   # if nil, PayPal use USD as default
-      :description   => $DESC,    # item description
+      :description   => "Club Loose North Pre Register",    # item description
       :quantity      => 1,      # item quantity
-      :amount        => $VAL,   # item value
+      :amount        => @params[:amount].to_i / 100 ,   # item value
       :custom_fields => {
         CARTBORDERCOLOR: "C00000",
-        LOGOIMG: "https://example.com/logo.png"
+        LOGOIMG: "https://clubloose-north.com/assets/logo.png"
       }
     )
   end
@@ -36,9 +39,32 @@ class Payment
   def p_response
     p_request.setup(
       p_payment_request,
-      "http://dev.drakemccabe.com/success/item",
-      "http://dev.drakemccabe.com/cancel",
+      "http://cln-147120.nitrousapp.com:5000/paypals?amount=" + @params[:amount] + "&event_id1=" + @params[:event_id1] + "&event_id2=" + @params[:event_id2] + "&car=" + @params[:car] + "&name=" + @params[:name] + "&note=" + @params[:note] + "&stripe_email=" + @params[:email],
+      "http://cln-147120.nitrousapp.com:5000/",
       p_options  # Optional
     )
+  end
+  
+ def add_driver
+    event1 = Event.find(@params[:event_id1])
+    driver = Driver.create(name: @params[:name],
+                           email: @params[:stripe_email],
+                           car: @params[:car],
+                           note: @params[:note])
+    event1.drivers << driver
+
+    if @params[:event_id2].blank?
+      new_driver = nil
+    else
+      new_driver = Driver.create(name: @params[:name],
+                                 email: @params[:stripe_email],
+                                 car: @params[:car],
+                                 note: @params[:note])
+
+      event2 = Event.find(@params[:event_id2])
+      event2.drivers << new_driver
+    end
+    drivers = [driver, new_driver]
+    drivers
   end
 end

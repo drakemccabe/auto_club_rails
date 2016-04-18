@@ -7,8 +7,7 @@ class PaymentsController < ApplicationController
     if payment.successful?
       drivers = payment.add_driver
       flash["message"] = "Thank You For Pre Registering"
-      
-      
+  
       driver_class = JoinMail.new(drivers[0], drivers[1])
       message = driver_class.create_mssg
       

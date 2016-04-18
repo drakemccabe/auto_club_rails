@@ -17,6 +17,22 @@
   ga('send', 'pageview');
 
 </script>
+  <script>
+    function displayPayPalForm(button) {
+  paypal_form = button.parentElement.getElementsByTagName('form')[1];
+  stripe_form = button.parentElement.getElementsByTagName('form')[0];
+  stripe_form.style.display = 'none'
+  paypal_form.style.display = 'block';
+}
+
+function displayStripeForm(button) {
+  paypal_form = button.parentElement.getElementsByTagName('form')[1];
+  stripe_form = button.parentElement.getElementsByTagName('form')[0];
+  paypal_form.style.display = 'none';
+  stripe_form.style.display = 'block'
+}
+
+  </script>
 </head>
 <body data-spy="scroll" data-target="nav">
 
