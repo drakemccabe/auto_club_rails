@@ -4,4 +4,7 @@ class Driver < ActiveRecord::Base
 
   validates :name, presence: true
   validates :car, presence: true
+
+  #To do
+  # validates payment fields for inclusion
 end

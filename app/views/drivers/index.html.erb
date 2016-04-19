@@ -19,6 +19,9 @@
   <td> Email </td>
   <td> Location </td>
   <td> Joined On </td>
+  <td> Cost Paid </td>
+  <td> Payment Method </td>
+  <td> REF Code </td>
   <td> Move to Event </td>
 </tr>
 
@@ -30,6 +33,9 @@
     <td> <%= driver.email %> </td>
     <td> <%= driver.note %> </td>
     <td> <%= driver.updated_at.strftime('%b %d %I:%M %p') %> </td>
+    <td> <%= driver.cost_paid %> </td>
+    <td> <%= driver.payment_method %> </td>
+    <td> <%= driver.ref_code %> </td>
     <td>
       <form id="<%= driver.id %>updateform" method="post" action="/spectators" onsubmit="return confirm('Are you sure you want to move this driver?');">
         <input type="hidden" name="event_id" value="<%= event.id %>">
@@ -58,7 +64,18 @@
   <label>Zip</label>
   <input type="text-field" name="note">
   <label>Car</label>
-  <input type="text-field" name="car">
+  <input type="text-field" name="car"><br>
+  <label>Cost Paid</label>
+  <input type="number" name="cost_paid">
+  <label>Payment Method</label>
+  <select name="payment_method">
+    <option value="STRIPE">STRIPE</option>
+    <option value="PAYPAL">PAYPAL</option>
+    <option value="CASH">CASH</option>
+    <option value="NO_CHARGE">NO CHARGE</option>
+  </select>
+  <label>REF Code</label>
+  <input type="text-field" name="ref_code">
   <input type="submit" value="Add Driver">
 </section>
 </div>

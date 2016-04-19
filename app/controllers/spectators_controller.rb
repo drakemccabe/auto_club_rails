@@ -22,7 +22,10 @@ class SpectatorsController < ApplicationController
         d = Driver.new(name: params[:name],
                    car: params[:car],
                    email: params[:email],
-                   note: params[:note]
+                   note: params[:note],
+                   cost_paid: params[:cost_paid],
+                   payment_method: params[:payment_method],
+                   ref_code: params[:ref_code]
         )
 
         d.save

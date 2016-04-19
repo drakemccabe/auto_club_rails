@@ -19,7 +19,10 @@ class StripePayment
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripeEmail],
                            car: @params[:car],
-                           note: @params[:note])
+                           note: @params[:note],
+                           cost_paid: (@params[:amount].to_i / 100).to_f,
+                           payment_method: "STRIPE",
+                           ref_code: @params[:stripeToken])
     event1.drivers << driver
 
     if @params[:event_id2].blank?
@@ -28,7 +31,10 @@ class StripePayment
       new_driver = Driver.create(name: @params[:name],
                                  email: @params[:stripeEmail],
                                  car: @params[:car],
-                                 note: @params[:note])
+                                 note: @params[:note],
+                                 cost_paid: (@params[:amount].to_i / 100).to_f,
+                                 payment_method: "STRIPE",
+                                 ref_code: @params[:stripeToken])
 
       event2 = Event.find(@params[:event_id2])
       event2.drivers << new_driver

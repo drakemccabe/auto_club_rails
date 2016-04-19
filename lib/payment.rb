@@ -2,7 +2,7 @@ class Payment
   def initialize(params)
     @params = params
   end
-  
+
   def init
     Paypal.sandbox! if Rails.env.development?
   end
@@ -44,13 +44,16 @@ class Payment
       p_options  # Optional
     )
   end
-  
+
  def add_driver
     event1 = Event.find(@params[:event_id1])
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripe_email],
                            car: @params[:car],
-                           note: @params[:note])
+                           note: @params[:note],
+                           cost_paid: (@params[:amount].to_i / 100).to_f,
+                           payment_method: "PAYPAL",
+                           ref_code: "")
     event1.drivers << driver
 
     if @params[:event_id2].blank?
@@ -59,7 +62,10 @@ class Payment
       new_driver = Driver.create(name: @params[:name],
                                  email: @params[:stripe_email],
                                  car: @params[:car],
-                                 note: @params[:note])
+                                 note: @params[:note],
+                                 cost_paid: (@params[:amount].to_i / 100).to_f,
+                                 payment_method: "PAYPAL",
+                                 ref_code: "")
 
       event2 = Event.find(@params[:event_id2])
       event2.drivers << new_driver
