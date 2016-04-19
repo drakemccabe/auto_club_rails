@@ -8,7 +8,7 @@ class PaypalsController < ApplicationController
     payment.p_response
     redirect_to(payment.p_response.redirect_uri)
   end
-  
+
   def index
     payment = Payment.new(params)
     payment.init
@@ -21,21 +21,23 @@ class PaypalsController < ApplicationController
       drivers = payment.add_driver
       driver_class = JoinMail.new(drivers[0], drivers[1])
       message = driver_class.create_mssg
-      
+
       client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
-      
+
       mail = SendGrid::Mail.new do |m|
         m.to = params[:stripe_email]
         m.from = 'noreply@clubloosenorth.com'
         m.subject = 'Your Club Loose North Driver Registration'
         m.html = message
       end
-     res = client.send(mail)      
+     res = client.send(mail)
       redirect_to thanks_path
-     return 
+     return
     else
       flash["error"] = "Payment Failed"
-      redirect_to events_path(params[:id])
+      redirect_to "/paypals/1"
     end
+  end
+  def show
   end
 end
