@@ -31,8 +31,8 @@ class Payment
       :quantity      => 1,      # item quantity
       :amount        => @params[:amount].to_i / 100 ,   # item value
       :custom_fields => {
-        CARTBORDERCOLOR: "C00000",
-        LOGOIMG: "https://clubloose-north.com/assets/logo.png"
+        CARTBORDERCOLOR: "D3D3D3",
+        LOGOIMG: "https://s3.amazonaws.com/clubloosenorth/cln/images/cln-header1.png"
       }
     )
   end
