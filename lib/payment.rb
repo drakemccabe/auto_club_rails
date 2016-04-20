@@ -1,6 +1,7 @@
 class Payment
-  def initialize(params)
+  def initialize(params, request)
     @params = params
+    @request = request
   end
 
   def init
@@ -39,8 +40,8 @@ class Payment
   def p_response
     p_request.setup(
       p_payment_request,
-      "http://cln-147120.nitrousapp.com:5000/paypals?amount=" + @params[:amount] + "&event_id1=" + @params[:event_id1] + "&event_id2=" + @params[:event_id2] + "&car=" + @params[:car] + "&name=" + @params[:name] + "&note=" + @params[:note] + "&stripe_email=" + @params[:email],
-      "http://cln-147120.nitrousapp.com:5000/",
+      host + "/paypals?amount=" + @params[:amount] + "&event_id1=" + @params[:event_id1] + "&event_id2=" + @params[:event_id2] + "&car=" + @params[:car] + "&name=" + @params[:name] + "&note=" + @params[:note] + "&stripe_email=" + @params[:email],
+      host,
       p_options  # Optional
     )
   end
@@ -51,7 +52,7 @@ class Payment
                            email: @params[:stripe_email],
                            car: @params[:car],
                            note: @params[:note],
-                           cost_paid: (@params[:amount].to_i / 100).to_f,
+                           cost_paid: bundle_price,
                            payment_method: "PAYPAL",
                            ref_code: "")
     event1.drivers << driver
@@ -63,7 +64,7 @@ class Payment
                                  email: @params[:stripe_email],
                                  car: @params[:car],
                                  note: @params[:note],
-                                 cost_paid: (@params[:amount].to_i / 100).to_f,
+                                 cost_paid: bundle_price,
                                  payment_method: "PAYPAL",
                                  ref_code: "")
 
@@ -72,5 +73,23 @@ class Payment
     end
     drivers = [driver, new_driver]
     drivers
+  end
+
+ private
+
+  def host
+    if Rails.env.development?
+      @request.host_with_port
+    else
+      @request.host
+    end
+  end
+
+  def bundle_price
+    if @params[:event_id2].blank?
+      return (@params[:amount].to_i / 100).to_f
+    else
+      return (@params[:amount].to_i / 100).to_f / 2.0
+    end
   end
 end

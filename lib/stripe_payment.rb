@@ -14,13 +14,21 @@ class StripePayment
                                    customer: customer.id)
   end
 
+  def bundle_price
+    if @params[:event_id2].blank?
+      return (@params[:amount].to_i / 100).to_f
+    else
+      return (@params[:amount].to_i / 100).to_f / 2.0
+    end
+  end
+
   def add_driver
     event1 = Event.find(@params[:event_id1])
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripeEmail],
                            car: @params[:car],
                            note: @params[:note],
-                           cost_paid: (@params[:amount].to_i / 100).to_f,
+                           cost_paid: bundle_price,
                            payment_method: "STRIPE",
                            ref_code: @params[:stripeToken])
     event1.drivers << driver
@@ -32,7 +40,7 @@ class StripePayment
                                  email: @params[:stripeEmail],
                                  car: @params[:car],
                                  note: @params[:note],
-                                 cost_paid: (@params[:amount].to_i / 100).to_f,
+                                 cost_paid: bundle_price,
                                  payment_method: "STRIPE",
                                  ref_code: @params[:stripeToken])
 

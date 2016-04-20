@@ -1,6 +1,6 @@
 class PaypalsController < ApplicationController
   def create
-    payment = Payment.new(params)
+    payment = Payment.new(params, request)
     payment.init
     payment.p_options
     payment.p_request
