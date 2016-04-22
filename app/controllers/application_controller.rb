@@ -15,6 +15,12 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_https
-    redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+    unless Rails.env.development?
+      if request.host != "herokuapp.com"
+        redirect_to "https://clubloose-north.herokuapp.com" + request.path
+      else
+        redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+      end
+    end
   end
 end
