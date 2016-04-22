@@ -10,7 +10,7 @@ class PaypalsController < ApplicationController
   end
 
   def index
-    payment = Payment.new(params)
+    payment = Payment.new(params, request)
     payment.init
     response = payment.p_request.checkout!(
     params[:token],

@@ -11,7 +11,7 @@ class Payment
   def p_options
    {
       no_shipping: true, # if you want to disable shipping information
-      allow_note: false, # if you want to disable notes
+      allow_note: true, # if you want to disable notes
       pay_on_paypal: true # if you don't plan on showing your own confirmation step
     }
   end
@@ -29,7 +29,7 @@ class Payment
       :currency_code => :USD,   # if nil, PayPal use USD as default
       :description   => "Club Loose North Pre Register",    # item description
       :quantity      => 1,      # item quantity
-      :amount        => @params[:amount].to_i / 100 ,   # item value
+      :amount        => (@params[:amount].to_i / 100).to_f ,   # item value
       :custom_fields => {
         CARTBORDERCOLOR: "D3D3D3",
         LOGOIMG: "https://s3.amazonaws.com/clubloosenorth/cln/images/cln-header1.png"
@@ -40,12 +40,16 @@ class Payment
   def p_response
     p_request.setup(
       p_payment_request,
-      host + "/paypals?amount=" + @params[:amount] + "&event_id1=" + @params[:event_id1] + "&event_id2=" + @params[:event_id2] + "&car=" + @params[:car] + "&name=" + @params[:name] + "&note=" + @params[:note] + "&stripe_email=" + @params[:email],
-      host,
+      "http://" + host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email]),
+       "http://" + host,
       p_options  # Optional
     )
   end
-
+  
+  def test1
+    host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email])
+  end
+  
  def add_driver
     event1 = Event.find(@params[:event_id1])
     driver = Driver.create(name: @params[:name],
