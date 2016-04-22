@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  #before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :redirect_to_https, only: [:show]
 
   def index
     @events = Event.all.order(:date).limit(20)
@@ -41,7 +42,7 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
     if params[:message].present?
        client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
-     
+
       event.drivers.each do |driver|
       mail = SendGrid::Mail.new do |m|
         m.to = driver.email
@@ -51,7 +52,7 @@ class EventsController < ApplicationController
       end
         res = client.send(mail)
       end
-    
+
     else
       event.update(event_params)
     end

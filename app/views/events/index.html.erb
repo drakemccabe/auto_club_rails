@@ -419,7 +419,6 @@
                 <div class="row">
                   <% if @events.any? %>
                    <% @events.each_with_index do |event, index| %>
-                  <% if event.date > Date.today + 1 %>
                     <div class="col-sm-4 team-member-wrap">
                         <div class="team-member">
                             <div class="team-details">
@@ -427,11 +426,7 @@
                                 <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" />
                               <% end %>
                               <a href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">
-                                <% if event.date > Date.today %>
                                   <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
-                                <% else %>
-                                <h4>ENDED</h4>
-                                <% end %>
 
                                                                                                                                             <h3> <a href="https://clubloose-north.herokuapp.com/events/<%= event.id %>"><%= event.name %></a> </h3>
                                 <p style="color: white;"><br> 9 AM - 5 PM <br> New Hampshire Motor Speedway <br> $15 to Spectate</p>
@@ -442,7 +437,9 @@
 
                                       <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
-                                                                                             <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>
+                                 <% if event.date > Date.today %>
+                                                            <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>
+                                                          <% end %>
 
 
 
@@ -452,7 +449,6 @@
                             </div>
                         </div>
                     </div>
-                  <% end%>
                   <% end %>
                   <% else %>
 

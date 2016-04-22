@@ -211,7 +211,15 @@ function draw(v,c,w,h) {
 </style>
               <h2 class="text-center">Until <strong><a href="https://clubloose-north.herokuapp.com/events/<%= @event.id %>"><%= @event.name %></a></strong></h2>
               <div style="display: table; margin: 0 auto; width: 100%;">
+                <div class="row">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
                 <iframe src="<%= @box.video_url %>" width="100%;" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              </div>
+              <div class="col-md-2">
+              </div>
+            </div>
               </div>
             </div>
             <!-- /.container -->
