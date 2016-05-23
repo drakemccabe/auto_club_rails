@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :redirect_to_https, only: [:show]
+  #before_filter :redirect_to_https, only: [:show]
 
   def index
     @events = Event.all.order(:date).limit(20)
