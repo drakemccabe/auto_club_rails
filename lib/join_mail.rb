@@ -16,7 +16,7 @@ class JoinMail
   end
   
   def create_mssg
-   return "<p>Hey #{@driver.name}, you\'re all clear to shred on #{events(@driver)} #{events(@new_driver)}!</p><p>In the meantime, read the <a href='http://www.clubloose-north.com/faqs'>driver\'s FAQ</a>, brush up on the <a href='http://www.clubloose-north.com/faqs/rules'>official rulebook</a>, and email info@clubloose-north.com with any questions or concerns.</p><p>Thanks for pre-registering and supporting Club Loose North.</p><p>-Russ Barcomb</p><br><br><p>Please do not reply to this message</p>"
+   return "<p>Hey #{@driver.name}, you\'re all clear to shred on #{events(@driver)} #{events(@new_driver)}!</p><p>In the meantime, read the <a href='http://www.clubloose-north.com/faqs'>driver\'s FAQ</a>, brush up on the <a href='http://www.clubloose-north.com/faqs/rules'>official rulebook and run schedule (important!)</a>, and email info@clubloose-north.com with any questions or concerns.</p><p>Thanks for pre-registering and supporting Club Loose North.</p><p>-Russ Barcomb</p><br><br><p>Please do not reply to this message</p>"
   end
 
   def events(driver_var)
