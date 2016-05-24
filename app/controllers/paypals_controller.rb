@@ -17,7 +17,7 @@ class PaypalsController < ApplicationController
     params[:PayerID],
     payment.p_payment_request
   )
-    if response.ack == "Success"
+    unless response.nil?
       drivers = payment.add_driver
       driver_class = JoinMail.new(drivers[0], drivers[1])
       message = driver_class.create_mssg
