@@ -50,7 +50,7 @@ class Payment
     host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email])
   end
   
- def add_driver
+ def add_driver(response)
     event1 = Event.find(@params[:event_id1])
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripe_email],
@@ -58,7 +58,7 @@ class Payment
                            note: @params[:note],
                            cost_paid: bundle_price,
                            payment_method: "PAYPAL",
-                           ref_code: "")
+                           ref_code: response.payment_info[0].transaction_id )
     event1.drivers << driver
 
     if @params[:event_id2].blank?
@@ -70,7 +70,7 @@ class Payment
                                  note: @params[:note],
                                  cost_paid: bundle_price,
                                  payment_method: "PAYPAL",
-                                 ref_code: "")
+                                 ref_code: response.payment_info[0].transaction_id )
 
       event2 = Event.find(@params[:event_id2])
       event2.drivers << new_driver

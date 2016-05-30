@@ -18,7 +18,7 @@ class PaypalsController < ApplicationController
     payment.p_payment_request
   )
     unless response.nil?
-      drivers = payment.add_driver
+      drivers = payment.add_driver(response)
       driver_class = JoinMail.new(drivers[0], drivers[1])
       message = driver_class.create_mssg
 
