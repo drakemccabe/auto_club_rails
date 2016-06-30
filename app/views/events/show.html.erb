@@ -60,7 +60,7 @@
                 <div class="row">
 
 <% e = @event.date %>
-<% t = DateTime.new(e.year,e.month,e.day - 1,8,0,0,'-4') %>
+<% t = DateTime.new(e.year,e.month,e.day - 1,4,0,0,'-4') %>
 <% if Time.now < t %>
 
 
@@ -155,6 +155,3 @@
             <p style="color: white; text-align: center;">* A note on security: Credit cards processed offsite by Stripe and Paypal. This page is secured by a Heroku SSL certificate. </p>
           </div>
         </section>
-
-            </body>
-</html>
