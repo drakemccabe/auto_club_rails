@@ -1,7 +1,11 @@
 class HomesController < ApplicationController
   def index
     @event = Event.where("date > current_date").first
-    @next_event = next_event_time(@event.date)
+    unless @event
+      @event = Event.new
+      @event.name = "To Be Announced"
+      @event.date = DateTime.civil_from_format :local, 2017, 04, 01
+    end
     @box = Box.find(1)
   end
 
