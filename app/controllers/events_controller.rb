@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @limit = @event.driver_limit || 40
     if @event.is_bundle?
       @two_pack = BundlePack.new(@event.date_check).pack
     end
@@ -69,6 +70,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:id, :price, :name, :date, :location, :facebook_url, :photo_url)
+    params.require(:event).permit(:id, :driver_limit, :price, :name, :date, :location, :facebook_url, :photo_url)
   end
 end

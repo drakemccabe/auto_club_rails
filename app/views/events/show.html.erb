@@ -61,7 +61,7 @@
 
 <% e = @event.date %>
 <% t = DateTime.new(e.year,e.month,e.day - 1,4,0,0,'-4') %>
-<% if Time.now < t %>
+<% if Time.now < t && @event.drivers.length < @limit %>
 
 
                     <div class="col-sm-4 price-block">
