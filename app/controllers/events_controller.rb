@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   #before_filter :redirect_to_https, only: [:show]
 
   def index
-    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Time.now.beginning_of_year, end_date: Time.now.end_of_year}).order(:date)
+    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.parse('01-04-2017'), end_date: Time.now.end_of_year}).order(:date)
     unless Rails.env.development?
       @photos = HTTParty.get("https://api.instagram.com/v1/tags/clubloosenorth/media/recent?client_id=bb3a3552e0a14419ae2805c8d0735728")
     end

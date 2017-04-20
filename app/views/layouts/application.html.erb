@@ -184,5 +184,8 @@ function displayStripeForm(button) {
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+  <script>
+    $('.team-member-wrap').matchHeight();
+  </script>
 </body>
 </html>
