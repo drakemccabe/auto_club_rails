@@ -59,7 +59,11 @@
                 </div>
                 <div class="row">
 
-<% e = @event.date %>
+<% if @two_pack.nil? %>
+  <% e = @event.date %>
+<% else %>
+  <% e = [@two_pack.dates.first, @two_pack.dates.last].min %>
+<% end %>
 <% t = DateTime.new(e.year,e.month,e.day - 1,4,0,0,'-4') %>
 <% if Time.now < t && @event.drivers.length < @limit %>
 
