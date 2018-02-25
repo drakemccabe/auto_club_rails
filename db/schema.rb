@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -28,10 +27,9 @@ ActiveRecord::Schema.define(version: 20170107184919) do
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["driver_id"], name: "index_attendees_on_driver_id", using: :btree
+    t.index ["event_id"], name: "index_attendees_on_event_id", using: :btree
   end
-
-  add_index "attendees", ["driver_id"], name: "index_attendees_on_driver_id", using: :btree
-  add_index "attendees", ["event_id"], name: "index_attendees_on_event_id", using: :btree
 
   create_table "boxes", force: :cascade do |t|
     t.string   "subtext"
@@ -65,9 +63,8 @@ ActiveRecord::Schema.define(version: 20170107184919) do
     t.string   "facebook_url"
     t.string   "photo_url"
     t.integer  "driver_limit"
+    t.index ["date"], name: "index_events_on_date", unique: true, using: :btree
   end
-
-  add_index "events", ["date"], name: "index_events_on_date", unique: true, using: :btree
 
   create_table "payments", force: :cascade do |t|
     t.integer "correlation_id", null: false
@@ -96,9 +93,8 @@ ActiveRecord::Schema.define(version: 20170107184919) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
