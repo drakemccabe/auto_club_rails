@@ -14,7 +14,8 @@
         amount: price * 100,
         event_id1: @event.id,
         event_id2: nil,
-        name: @event.name
+        name: @event.name,
+        is_season: false
       %>
     </li>
     <li>
@@ -26,7 +27,7 @@
       <p>
         <% if registration == 'early' %>
           Early Registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %P") %>
-          Same week registration costs $<%= @event.price + 15 %> and ends at 4 AM the day before the event.
+          Same week registration costs $<%= @event.price + 25 %> and ends at 4 AM the day before the event.
         <% elsif registration == 'same week' %>
           Same week registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %P") %>
         <% end %>

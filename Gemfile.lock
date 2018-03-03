@@ -6,6 +6,15 @@ GIT
     json (1.8.6)
 
 GIT
+  remote: git://github.com/ianfleeton/paypal-express.git
+  revision: b0e6c0917de322cbca784dfdf5863a5b1afb077d
+  specs:
+    ianfleeton-paypal-express (0.8.3)
+      activesupport (>= 2.3, < 6)
+      attr_required (~> 1.0)
+      rest-client (~> 2.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: c236286b7d6e73affa1597f62fd51e9dbd268f1c
   specs:
@@ -154,10 +163,6 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    paypal-express (0.8.1)
-      activesupport (>= 2.3)
-      attr_required (>= 0.0.5)
-      rest-client
     pg (0.18.3)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -276,12 +281,12 @@ DEPENDENCIES
   factory_bot
   font-awesome-rails
   httparty
+  ianfleeton-paypal-express!
   jbuilder (~> 2.0)
   jquery-rails
   json!
   launchy
   mailgun-ruby
-  paypal-express
   pg (~> 0.18)
   pry
   rails

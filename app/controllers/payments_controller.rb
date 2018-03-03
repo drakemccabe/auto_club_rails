@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   require 'sendgrid-ruby'
+  include SendGrid
 
   def create
     payment = StripePayment.new(params)
@@ -8,18 +9,20 @@ class PaymentsController < ApplicationController
       drivers = payment.add_driver
       flash["message"] = "Thank You For Pre Registering"
 
-      driver_class = JoinMail.new(drivers[0], drivers[1])
-      message = driver_class.create_mssg
+      unless params[:season] == "true"
+        driver_class = JoinMail.new(drivers[0], drivers[1])
+        message = driver_class.create_mssg
 
-      client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
+        sg = SendGrid::API.new(api_key: ENV["SENDGRID"])
 
-      mail = SendGrid::Mail.new do |m|
-        m.to = params[:stripeEmail]
-        m.from = 'noreply@clubloosenorth.com'
-        m.subject = 'Your Club Loose North Driver Registration'
-        m.html = message
+        from = Email.new(email: 'noreply@clubloosenorth.com')
+        to = Email.new(email: params[:stripe_email])
+        subject = 'Your Club Loose North Driver Registration'
+        content = Content.new(type: 'text/html', value: message)
+        mail = Mail.new(from, subject, to, content)
+
+        sg.client.mail._('send').post(request_body: mail.to_json)
       end
-     res = client.send(mail)
       redirect_to thanks_path
      return
     else

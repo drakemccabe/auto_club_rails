@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.parse('01-04-2018'), end_date: Time.now.end_of_year}).order(:date)
+    @seasons = Season.where("expires >= ?", Date.today)
+    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.parse('04-01-2018'), end_date: Time.now.end_of_year}).order(:date)
     @params = params
   end
 

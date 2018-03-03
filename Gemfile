@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby "2.5.0"
 
-gem 'paypal-express'
+gem 'ianfleeton-paypal-express', github: 'ianfleeton/paypal-express', require: 'paypal/express'
 gem 'json', github: 'flori/json', branch: 'v1.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

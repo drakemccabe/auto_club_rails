@@ -44,6 +44,7 @@
   <% e = [@two_pack.dates.first, @two_pack.dates.last].min %>
 <% end %>
 <% early = DateTime.new(e.year,e.month,e.day,4,0,0,'-4') - 7.day %>
+    end
 <% same_week = DateTime.new(e.year,e.month,e.day,4,0,0,'-4') - 1.day %>
 
 <% if Time.now <= early && @event.drivers.length < @limit %>
@@ -52,9 +53,9 @@
     <%= render "twopack", first_price: @two_pack.second_price(@event.id), registration: 'early', two_pack: @two_pack, price: @two_pack.price, time: early %>
   <% end %>
 <% elsif Time.now >= early && Time.now <= same_week && @event.drivers.length < @limit %>
-  <%= render "event", registration: 'same week', event: @event, price: @event.price + 15, time: same_week %>
+  <%= render "event", registration: 'same week', event: @event, price: @event.price + 25, time: same_week %>
   <% unless @two_pack.nil? %>
-    <%= render "twopack", first_price: @two_pack.second_price(@event.id) + 15, registration: 'same week', two_pack: @two_pack, price: @two_pack.prices.sum + 30, time: same_week %>
+    <%= render "twopack", first_price: @two_pack.second_price(@event.id) + 25, registration: 'same week', two_pack: @two_pack, price: @two_pack.prices.sum + 40, time: same_week %>
   <% end %>
 <% else %>
   <h1 style="color: white;"> Event Registration Closed </h1>

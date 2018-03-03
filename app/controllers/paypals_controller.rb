@@ -1,4 +1,5 @@
 class PaypalsController < ApplicationController
+  include SendGrid
   def create
     payment = Payment.new(params, request)
     payment.init
@@ -19,19 +20,23 @@ class PaypalsController < ApplicationController
   )
     unless response.nil?
       drivers = payment.add_driver(response)
-      driver_class = JoinMail.new(drivers[0], drivers[1])
-      message = driver_class.create_mssg
+      unless params[:season] == "true"
+        driver_class = JoinMail.new(drivers[0], drivers[1])
+        message = driver_class.create_mssg
 
-      client = SendGrid::Client.new(api_key: ENV["SENDGRID"])
+        sg = SendGrid::API.new(api_key: ENV["SENDGRID"])
 
-      mail = SendGrid::Mail.new do |m|
-        m.to = params[:stripe_email]
-        m.from = 'noreply@clubloosenorth.com'
-        m.subject = 'Your Club Loose North Driver Registration'
-        m.html = message
+        from = Email.new(email: 'noreply@clubloosenorth.com')
+        to = Email.new(email: params[:stripe_email])
+        subject = 'Your Club Loose North Driver Registration'
+        content = Content.new(type: 'text/html', value: message)
+        mail = Mail.new(from, subject, to, content)
+
+         response = sg.client.mail._('send').post(request_body: mail.to_json)
+        redirect_to thanks_path
+      else
+        redirect_to thanks_path
       end
-     res = client.send(mail)
-      redirect_to thanks_path
      return
     else
       flash["error"] = "Payment Failed"
