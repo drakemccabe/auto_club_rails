@@ -8,7 +8,7 @@ class DriversController < ApplicationController
     event = Event.find(params[:event_id])
     drivers = event.drivers
     respond_to do |format|
-      format.csv { render csv: drivers }
+      format.csv { render csv: drivers.to_a }
       format.html { render :index, locals: { drivers: drivers, event: event } }
     end
   end

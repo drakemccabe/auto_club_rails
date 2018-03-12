@@ -1,61 +1,40 @@
 <section id="content-3-1" class="content-block-nopad content-3-1" style="background: url('<%= @event.photo_url %>') center no-repeat;">
-            <div class="overlay overlay-aqua">
-                <div class="container text-center">
-                    <h2>Join us on <%= @event.date.strftime("%a, %b #{@event.date.day.ordinalize}") %> for</h2>
-                    <h1><%= @event.name %></h1>
-                </div>
-                <!-- /.container -->
-            </div>
-        </section>
-
-<% if user_signed_in? %>
-        <section class="content-block" style="margin-left: 50%; margin-right: 50%; width: 100%;">
-  <div style="width: 500px; background-color: #d3d3d3;">
-    <div class="container">
-    <h2> Admin Box </h2>
-  <ul>
-    <li> <%= link_to "View Drivers", event_drivers_path(@event) %>,</li>
-  <li><%= link_to "Edit Event", edit_event_path(@event) %>,</li>
-  <li><%= button_to "Delete Event", { action: "destroy", id: @event.id },
-  method: :delete, data: { confirm: "Are you sure?" } %></li></ul>
-  <%= form_tag "/events/#{@event.id}", method: "patch", action: "update" do %>
-  <%= label_tag "Send message to drivers:" %>
-  <br>
-  <%= text_area_tag :message, "warning: this field will send an email out to all drivers." %>
-  <%= submit_tag "Send", data: { confirm: "Are you sure?" } %>
-<% end %>
-</div>
-</div>
-</section>
-
-<!--
-<section class="content-block" style="">
-  <div style="width: 500px; background-color: #d3d3d3; float: left">
-    <div class="container">
-    <h2> Admin Stats </h2>
-    <table>
-      <tr>
-        <td> Number of Drivers: </td>
-        <td> <%= @event.drivers.count %> </td>
-      </tr>
-      <tr>
-        <td> Total Revenue Collected </td>
-        <td> <%= "$#{@event.drivers.count * @event.price}" %> </td>
-      </tr>
-    </table>
+  <div class="overlay overlay-aqua">
+    <div class="container text-center">
+      <h2>Join us on <%= @event.date.strftime("%a, %b #{@event.date.day.ordinalize}") %> for</h2>
+      <h1><%= @event.name %></h1>
     </div>
   </div>
 </section>
--->
 
+<% if user_signed_in? %>
+  <section class="content-block" style="margin-left: 50%; margin-right: 50%; width: 100%;">
+    <div style="width: 500px; background-color: #d3d3d3;">
+      <div class="container">
+        <h2> Admin Box </h2>
+        <ul>
+          <li> <%= link_to "View Drivers", event_drivers_path(@event) %>,</li>
+          <li><%= link_to "Edit Event", edit_event_path(@event) %>,</li>
+          <li><%= button_to "Delete Event", { action: "destroy", id: @event.id },
+            method: :delete, data: { confirm: "Are you sure?" } %></li>
+        </ul>
+        <%= form_tag "/events/#{@event.id}", method: "patch", action: "update" do %>
+          <%= label_tag "Send message to drivers:" %>
+          <br>
+          <%= text_area_tag :message, "warning: this field will send an email out to all drivers." %>
+          <%= submit_tag "Send", data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
+    </div>
+  </section>
 <% end %>
 
-        <section class="content-block pricing-table-1 pricing-table-1-2 bg-deepocean">
-            <div class="container">
-                <div class="underlined-title">
-                    <h1 style="color: white;">Register To Drive Now</h1>
-                    <hr>
-                  <% unless @two_pack.nil? %>  <h2>Prereg for both and save!</h2> <% end %>
+<section class="content-block pricing-table-1 pricing-table-1-2 bg-deepocean">
+  <div class="container">
+    <div class="underlined-title">
+      <h1 style="color: white;">Register To Drive Now</h1>
+      <hr>
+      <% unless @two_pack.nil? %>  <h2>Prereg for both and save!</h2> <% end %>
                 </div>
                 <div class="row">
 
@@ -64,90 +43,23 @@
 <% else %>
   <% e = [@two_pack.dates.first, @two_pack.dates.last].min %>
 <% end %>
-<% t = DateTime.new(e.year,e.month,e.day - 1,4,0,0,'-4') %>
-<% if Time.now < t && @event.drivers.length < @limit %>
+<% early = DateTime.new(e.year,e.month,e.day,0,0,1,'-4') - 7.day %>
+    end
+<% same_week = DateTime.new(e.year,e.month,e.day,0,0,1,'-4') - 1.day %>
 
-
-                    <div class="col-sm-4 price-block">
-                        <h3><%= @event.date.strftime("%b #{@event.date.day.ordinalize}") %></h3>
-
-                        <div class="price pastel-green">
-                            <div class="price-figure">
-                                <h4><%= @event.date.strftime("%a") %></h4>
-                               <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.685919256672!2d-71.46276118451165!3d43.3626799791323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e271749cbc5f33%3A0x9bf69824bfaac9ed!2sNew+Hampshire+Motor+Speedway!5e0!3m2!1sen!2sus!4v1448136980959" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-                            </div>
-                        </div>
-                        <ul class="features">
-                          <li>$<%= @event.price %> to pre-reg ($<%= @event.price + 25 %> at the door)</li>
-                            <li>
-                    <%= render "form", amount: @event.price * 100, event_id1: @event.id, event_id2: nil, name: @event.name %>
-                            </li>
-                          <li>
-                            <p class="small">Note: The email you enter will be used for communication if an event is canceled or rescheduled. Club Loose North respects your privacy and will not distribute your email or use it for marketing.</p>
-                          </li>
-                          <li>
-                             <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
-
-                          </li>
-                        </ul>
-                        <!-- <div class="price-footer">
-                            <a href="#" class="btn btn-info">Register &amp; Pay</a>
-                        </div> -->
-                    </div>
-
-                  <% unless @two_pack.nil? %>
-
- <div class="col-sm-4 price-block">
-                      <h3><%= @two_pack.dates.last.strftime("%b #{@two_pack.dates.last.day.ordinalize}") %></h3>
-                        <div class="price pastel-green">
-                            <div class="price-figure">
-                              <h4><%= @two_pack.dates.last.strftime("%a") %></h4>
-                              <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.685919256672!2d-71.46276118451165!3d43.3626799791323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e271749cbc5f33%3A0x9bf69824bfaac9ed!2sNew+Hampshire+Motor+Speedway!5e0!3m2!1sen!2sus!4v1448136980959" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>  -->
-                            </div>
-                        </div>
-                        <ul class="features">
-                          <li>$<%= @event.price %> to pre-reg ($100 at the door)</li>
-                            <li>
-                                <%= render "form", amount: @event.price * 100, event_id1: @two_pack.ids.last, event_id2: nil, name: @event.name %>
-                            </li>
-                          <li>
-                            <p class="small">Note: The email you enter will be used for communication if an event is canceled or rescheduled. Club Loose North respects your privacy and will not distribute your email or use it for marketing.</p>
-                          </li>
-                           <li>
-                             <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
-
-                          </li>
-                        </ul>
-                       </div>
-                <!-- /.row -->
-
-
-                    <div class="col-sm-4 price-block">
-                      <h3><%= @two_pack.dates.first.strftime("%b #{@two_pack.dates.first.day.ordinalize}") %> and <%= @two_pack.dates.last.strftime("%b #{@two_pack.dates.last.day.ordinalize}") %></h3>
-                        <div class="price pastel-green">
-                            <div class="price-figure">
-                              <h4><%= @two_pack.dates.first.strftime("%a") %> and <%= @two_pack.dates.last.strftime("%a") %></h4>
-                              <!--  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.685919256672!2d-71.46276118451165!3d43.3626799791323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e271749cbc5f33%3A0x9bf69824bfaac9ed!2sNew+Hampshire+Motor+Speedway!5e0!3m2!1sen!2sus!4v1448136980959" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-                            </div>
-                        </div>
-                        <ul class="features">
-                          <li>$<%= @two_pack.price %> to pre-reg (Save $10!)</li>
-                            <li>
-                                <%= render "form", amount: @two_pack.price * 100, event_id1: @two_pack.ids.first, event_id2: @two_pack.ids.last, name: @two_pack.name %>
-                            </li>
-                          <li>
-                            <p class="small">Note: The email you enter will be used for communication if an event is canceled or rescheduled. Club Loose North respects your privacy and will not distribute your email or use it for marketing.</p>
-                          </li>
-                           <li>
-                             <p> Registration ends at <%= t.strftime("%a, %b #{t.day.ordinalize} at %l:%M%P") %> </p>
-
-                          </li>
-                        </ul>
-
-                      <% end %>
-                      <% else %>
-                      <h1 style="color: white;"> Event Registration Closed </h1>
-                      <% end %>
+<% if Time.now <= early && @event.drivers.length < @limit %>
+  <%= render "event", registration: 'early', event: @event, price: @event.price, time: early %>
+  <% unless @two_pack.nil? %>
+    <%= render "twopack", first_price: @two_pack.second_price(@event.id), registration: 'early', two_pack: @two_pack, price: @two_pack.price, time: early %>
+  <% end %>
+<% elsif Time.now >= early && Time.now <= same_week && @event.drivers.length < @limit %>
+  <%= render "event", registration: 'same week', event: @event, price: @event.price + 25, time: same_week %>
+  <% unless @two_pack.nil? %>
+    <%= render "twopack", first_price: @two_pack.second_price(@event.id) + 25, registration: 'same week', two_pack: @two_pack, price: @two_pack.prices.sum + 40, time: same_week %>
+  <% end %>
+<% else %>
+  <h1 style="color: white;"> Event Registration Closed </h1>
+<% end %>
                     </div>
                 </div>
                 <!-- /.row -->

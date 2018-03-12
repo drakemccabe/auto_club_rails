@@ -3,6 +3,7 @@
   <button class="btn btn-primary" onclick="javascript:displayStripeForm(this)">Pay With Card</button>
   <form style="display: none;" action="/payments" method="POST" class="form-inline">
     <input type="hidden" name="amount" value="<%= amount %>"><br>
+    <input type="hidden" name="season" value="<%= is_season %>">
     <input type="hidden" name="event_id1" value="<%= event_id1 %>">
     <input type="hidden" name="event_id2" value="<%= event_id2 %>">
     <label> Enter Car </label>
@@ -26,6 +27,7 @@
   <form style="display: none;" action="/paypals" method="POST" method="post" class="form-inline">
     <input type="hidden" name="amount" value="<%= amount %>"><br>
     <input type="hidden" name="event_id1" value="<%= event_id1 %>">
+    <input type="hidden" name="season" value="<%= is_season %>">
     <input type="hidden" name="event_id2" value="<%= event_id2 %>">
     <label> Enter Car </label>
     <input required type="text" name="car"><br>

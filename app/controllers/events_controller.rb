@@ -1,13 +1,9 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  #before_filter :redirect_to_https, only: [:show]
 
   def index
-    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.parse('01-04-2017'), end_date: Time.now.end_of_year}).order(:date)
-    unless Rails.env.development?
-      @photos = HTTParty.get("https://api.instagram.com/v1/tags/clubloosenorth/media/recent?client_id=bb3a3552e0a14419ae2805c8d0735728")
-    end
-    @calendar = @events.group_by { |t| t.date.beginning_of_month }.stringify_keys
+    @seasons = Season.where("expires >= ?", Date.today)
+    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.today - 2.days, end_date: Time.now.end_of_year}).order(:date)
     @params = params
   end
 
@@ -51,7 +47,7 @@ class EventsController < ApplicationController
         m.subject = 'Important Info About Your Club Loose North Registration.'
         m.html = params[:message]
       end
-        res = client.send(mail)
+        client.send(mail)
       end
 
     else

@@ -1,4 +1,4 @@
- <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat; height: 650px;">
+ <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('https://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat;">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
                     <h2>New England Drifting</h2>
@@ -27,383 +27,6 @@
 
                   <div></div>
 
-<div class="caldiv">
-                    <ul class="calendar">
-
-                      <li><div class="calbox"><div class="top">APR</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-04-01"].present? %>
-                        <% @calendar["#{Date.today.year}-04-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-
-                      <li><div class="calbox"><div class="top">MAY</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-05-01"].present? %>
-                        <% @calendar["#{Date.today.year}-05-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                      <li><div class="calbox"><div class="top">JUN</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-06-01"].present? %>
-                        <% @calendar["#{Date.today.year}-06-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                      <li><div class="calbox"><div class="top">JUL</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-07-01"].present? %>
-                        <% @calendar["#{Date.today.year}-07-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                      <li><div class="calbox"><div class="top">AUG</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-08-01"].present? %>
-                        <% @calendar["#{Date.today.year}-08-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                      <li><div class="calbox"><div class="top">SEP</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-09-01"].present? %>
-                        <% @calendar["#{Date.today.year}-09-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                      <li><div class="calbox"><div class="top">OCT</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-10-01"].present? %>
-                        <% @calendar["#{Date.today.year}-10-01"].each do |item| %>
-                        <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-
-                      <li id="lastli"><div class="calbox"><div class="top">NOV</div><div class="bottom">
-
-                       <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                        <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
-                        <a href="/https://clubloose-north.herokuapp.comevents/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                              <br>
-                        <% end %>
-                        <% else %>
-                        <a href="/">NO</a><br><a href="/">EVENTS</a>
-                          <% end %>
-                        </div></div>
-                      </li>
-
-
-                    </ul>
-
-                    <div id="desktopcal" class="" style="display: table; margin: 0 auto; color: black;">
-                      <table>
-                        <tr>
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">APR</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-04-01"].present? %>
-                              <% @calendar["#{Date.today.year}-04-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">MAY</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-05-01"].present? %>
-                              <% @calendar["#{Date.today.year}-05-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">JUN</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-06-01"].present? %>
-                              <% @calendar["#{Date.today.year}-06-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">JUL</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-07-01"].present? %>
-                              <% @calendar["#{Date.today.year}-07-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">AUG</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-08-01"].present? %>
-                              <% @calendar["#{Date.today.year}-08-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">SEP</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-09-01"].present? %>
-                              <% @calendar["#{Date.today.year}-09-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">OCT</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-10-01"].present? %>
-                              <% @calendar["#{Date.today.year}-10-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                          <td>
-
-                            <li id="lastli"><div class="calbox"><div class="top">NOV</div><div class="bottom">
-
-                             <% if @calendar["#{Date.today.year}-11-01"].present? %>
-                              <% @calendar["#{Date.today.year}-11-01"].each do |item| %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= item.id %>"><%= item.date.strftime("%b #{item.date.day.ordinalize}") %></a>
-                                    <br>
-                              <% end %>
-                              <% else %>
-                              <a href="/">NO</a><br><a href="/">EVENTS</a>
-                                <% end %>
-                              </div></div>
-                            </li>
-
-                          </td>
-
-
-                        </tr>
-                      </table>
-                    </div>
-
-                    <script type="text/javascript">
-
-
-
-
-                       window.onload = function() {
-                         var width1 = $(window).width();
-
-                         if (width1 < 500 ) {
-                           $("#content-3-323").height(850);
-                           $(".calendar li").addClass("nofloat");
-                           $("#desktopcal").addClass("hidethis");
-
-                         } else {
-                           $("#content-3-323").height(100);
-                            $(".calendar li").addClass("hidethis");
-                         }
-                       }
-
-                       window.onresize = function() {
-                         var width = $(window).width();
-
-                         if (width < 500 ) {
-                           $("#content-3-323").height(850);
-                           $(".calendar li").addClass("nofloat");
-                          $(".calendar li").removeClass("hidethis");
-                          $("#desktopcal").addClass("hidethis");
-                         } else {
-                           $("#content-3-323").height(100);
-                            $(".calendar li").removeClass("nofloat");
-                            $(".calendar li").addClass("hidethis");
-                            $("#desktopcal").removeClass("hidethis");
-                         }
-                       }
-
-
-
-                    </script>
-</div>
-
-                    <style>
-
-                    #desktopcal a {
-                      color: black;
-                    }
-
-                    #desktopcal li {
-                      list-style: none;
-                    }
-
-                    .hidethis {
-                      display: none !important;
-                    }
-
-                      #lastli {
-                        position: absoulte;
-                        right: 10px;
-
-                      }
-
-                      .calendar li {
-                        display: inline-block;
-                        list-style-type: none;
-                        padding: 10px;
-
-                      }
-
-                      .nofloat {
-                        float: none !important;
-                        display: table;
-                        margin: auto 0;
-                      }
-
-                      .buttonnav li {
-                        display: inline;
-                        list-style-type: none;
-                        padding: 10px;
-                      }
-
-                      .middle_icon {
-                        height: 50px;
-                        width: 50px;
-                      }
-
-                      .calendar li:nth-child(-n+4) {
-                        float: left;
-                      }
-
-                       .calendar li:nth-child(-n+8):nth-child(n+5) {
-                        float: right;
-                      }
-
-                      .calbox {
-                        border: 1px solid #d3d3d3;
-                        margin: 10px;
-                        width: 80px;
-
-                      }
-                      .top {
-                        top: 0px;
-                        background-color: #d3d3d3;
-                        text-transform: uppercase;
-                      }
-
-                    .bottom {
-
-                     bottom: 0px;
-                    }
-                    </style>
                     <% if false %>
                     <li> Frequently Asked Questions </li>
                     <li> Rulebook </li>
@@ -413,6 +36,26 @@
                 <!-- /.container -->
             </div>
         </section>
+
+          <% @seasons.each do |season| %>
+            <section class="content-block team-1 team-1-1" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" syle="background-color: #fff">
+                          <h1><%= season.name %> - $<%= season.price %></h1>
+                          <p> <%= season.description %> </p>
+                          <%= render "form",
+                            amount: season.price * 100,
+                            event_id1: season.id,
+                            event_id2: nil,
+                            name: season.name,
+                            is_season: true
+                          %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <% end %>
 
         <section class="content-block team-1 team-1-1 bg-deepocean" style="color: white;">
             <div class="container">
@@ -435,7 +78,7 @@
 
                                           <li style="display: inline-block;"><a target="_blank" href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> </li>
 
-                                      <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
+                                      <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+https:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
                                  <% if event.date > Date.today %>
                                                             <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>

@@ -23,7 +23,12 @@ class StripePayment
   end
 
   def add_driver
-    event1 = Event.find(@params[:event_id1])
+    if @params[:season] == "true"
+      event1 = Season.find(@params[:event_id1])
+      event1.add_to_events_stripe(@params, bundle_price)
+    else
+      event1 = Event.find(@params[:event_id1])
+    end
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripeEmail],
                            car: @params[:car],
@@ -42,7 +47,7 @@ class StripePayment
                                  note: @params[:note],
                                  cost_paid: bundle_price,
                                  payment_method: "STRIPE",
-                                 ref_code: @params[:stripeToken])
+                                 ref_code: @charge.id)
 
       event2 = Event.find(@params[:event_id2])
       event2.drivers << new_driver

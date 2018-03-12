@@ -40,18 +40,23 @@ class Payment
   def p_response
     p_request.setup(
       p_payment_request,
-      "http://" + host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email]),
+      "http://" + host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&season=" + URI::escape(@params[:season]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email]),
        "http://" + host,
       p_options  # Optional
     )
   end
-  
+
   def test1
     host + "/paypals?amount=" + URI::escape(@params[:amount]) + "&event_id1=" + URI::escape(@params[:event_id1]) + "&event_id2=" + URI::escape(@params[:event_id2]) + "&car=" + URI::escape(@params[:car]) + "&name=" + URI::escape(@params[:name]) + "&note=" + URI::escape(@params[:note]) + "&stripe_email=" + URI::escape(@params[:email])
   end
-  
+
  def add_driver(response)
-    event1 = Event.find(@params[:event_id1])
+    if @params[:season] == "true"
+      event1 = Season.find(@params[:event_id1])
+      event1.add_to_events_paypal(@params, bundle_price, response)
+    else
+      event1 = Event.find(@params[:event_id1])
+    end
     driver = Driver.create(name: @params[:name],
                            email: @params[:stripe_email],
                            car: @params[:car],
