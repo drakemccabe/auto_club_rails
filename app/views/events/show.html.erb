@@ -43,9 +43,9 @@
 <% else %>
   <% e = [@two_pack.dates.first, @two_pack.dates.last].min %>
 <% end %>
-<% early = DateTime.new(e.year,e.month,e.day,4,0,0,'-4') - 7.day %>
+<% early = DateTime.new(e.year,e.month,e.day,0,0,1,'-4') - 7.day %>
     end
-<% same_week = DateTime.new(e.year,e.month,e.day,4,0,0,'-4') - 1.day %>
+<% same_week = DateTime.new(e.year,e.month,e.day,0,0,1,'-4') - 1.day %>
 
 <% if Time.now <= early && @event.drivers.length < @limit %>
   <%= render "event", registration: 'early', event: @event, price: @event.price, time: early %>

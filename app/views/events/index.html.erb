@@ -1,4 +1,4 @@
- <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('http://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat;">
+ <section id="content-3-323" class="content-block-nopad content-3-3" style="background: url('https://s3.amazonaws.com/clubloosenorth/cln/images/blue.jpg') center no-repeat;">
             <div class="overlay overlay-blue">
                 <div class="container text-center">
                     <h2>New England Drifting</h2>
@@ -78,7 +78,7 @@
 
                                           <li style="display: inline-block;"><a target="_blank" href="<%= event.facebook_url %>"><i class="fa fa-2x fa-facebook"></i>View on Facebook</a> </li>
 
-                                      <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+http:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
+                                      <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+https:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
                                  <% if event.date > Date.today %>
                                                             <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>

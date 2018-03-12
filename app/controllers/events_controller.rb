@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
     @seasons = Season.where("expires >= ?", Date.today)
-    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.parse('04-01-2018'), end_date: Time.now.end_of_year}).order(:date)
+    @events = Event.where("date >= :start_date AND date <= :end_date", {start_date: Date.today - 2.days, end_date: Time.now.end_of_year}).order(:date)
     @params = params
   end
 

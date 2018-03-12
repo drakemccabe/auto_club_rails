@@ -26,10 +26,10 @@
     <li>
       <p>
         <% if registration == 'early' %>
-          Early Registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %P") %>
-          Same week registration costs $<%= @event.price + 25 %> and ends at 4 AM the day before the event.
+          Early Registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %p") %>.
+          Same week registration costs $<%= @event.price + 25 %> and ends at 12:00 AM the day before the event.
         <% elsif registration == 'same week' %>
-          Same week registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %P") %>
+          Same week registration ends on <%= time.strftime("%a, %b #{time.day.ordinalize} at %l:%M %p") %>.
         <% end %>
       </p>
     </li>

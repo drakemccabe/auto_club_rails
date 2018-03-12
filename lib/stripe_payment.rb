@@ -47,7 +47,7 @@ class StripePayment
                                  note: @params[:note],
                                  cost_paid: bundle_price,
                                  payment_method: "STRIPE",
-                                 ref_code: @params[:stripeToken])
+                                 ref_code: @charge.id)
 
       event2 = Event.find(@params[:event_id2])
       event2.drivers << new_driver

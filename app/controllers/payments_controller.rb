@@ -16,7 +16,7 @@ class PaymentsController < ApplicationController
         sg = SendGrid::API.new(api_key: ENV["SENDGRID"])
 
         from = Email.new(email: 'noreply@clubloosenorth.com')
-        to = Email.new(email: params[:stripe_email])
+        to = Email.new(email: params["stripeEmail"])
         subject = 'Your Club Loose North Driver Registration'
         content = Content.new(type: 'text/html', value: message)
         mail = Mail.new(from, subject, to, content)
