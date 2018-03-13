@@ -65,13 +65,10 @@
                     <div class="col-sm-4 team-member-wrap">
                         <div class="team-member">
                             <div class="team-details">
-                              <% unless Rails.env.development? || Rails.env.production? %>
-                                <img src="<%= @photos["data"][index]["images"]["standard_resolution"]["url"] %>" width="100%" height="200px" />
-                              <% end %>
-                              <a href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">
+                              <a href="/events/<%= event.id %>">
                                   <h4 class="member-name"><%= event.date.strftime("%a, %m/%d") %></h4>
 
-                                                                                                                                            <h3> <a href="https://clubloose-north.herokuapp.com/events/<%= event.id %>"><%= event.name %></a> </h3>
+                                                                                                                                            <h3> <a href="/events/<%= event.id %>"><%= event.name %></a> </h3>
                                                                                                                                             <p style="color: white;"><br> 9 AM - 5 PM <br> <%= event.location %> <br> $15 to Spectate</p>
                                 <ul class="social social-dark" >
                                     <div class="row">
@@ -81,7 +78,7 @@
                                       <li style="display: inline-block;"><a target="_blank" href="https://www.google.com/calendar/render?action=TEMPLATE&text=<%= event.name.gsub(/ /, '+') %>&dates=<%= event.date.strftime("%Y%m%d") %>T140000Z/<%= event.date.strftime("%Y%m%d") %>T220000Z&details=$<%= event.price %>+to+drive,+$15+to+watch+.+More+info:+https:www.clubloosenorth.com/events/<%= event.id %>&location=New+Hampshire+Motor+Speedway,+1122+NH-106,+Loudon,+NH+03307&sf=true&output=xml"><i class="fa fa-calendar-plus-o"></i>Add to Google Calendar</a></li>
                                       <br>
                                  <% if event.date > Date.today %>
-                                                            <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="https://clubloose-north.herokuapp.com/events/<%= event.id %>">Register to Drive</a>
+                                                            <a class="btn-sm btn btn-default center" style="width 60%; display: table; margin: 0 auto; color: red;" href="/events/<%= event.id %>">Register to Drive</a>
                                                           <% end %>
 
 
