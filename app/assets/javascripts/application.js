@@ -12,7 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require plugins
+//= require flipclock.js
 //= require twitter/bootstrap
-//= require clock.js
+//= require html5shiv.js
+//= require jquery.matchHeight-min.js
+//= require respond.min.js
+//= require bskit-scripts.js
 
 
