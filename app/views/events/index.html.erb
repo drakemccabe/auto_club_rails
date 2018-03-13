@@ -37,25 +37,6 @@
             </div>
         </section>
 
-          <% @seasons.each do |season| %>
-            <section class="content-block team-1 team-1-1" >
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12" syle="background-color: #fff">
-                          <h1><%= season.name %> - $<%= season.price %></h1>
-                          <p> <%= season.description %> </p>
-                          <%= render "form",
-                            amount: season.price * 100,
-                            event_id1: season.id,
-                            event_id2: nil,
-                            name: season.name,
-                            is_season: true
-                          %>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        <% end %>
 
         <section class="content-block team-1 team-1-1 bg-deepocean" style="color: white;">
             <div class="container">
@@ -105,5 +86,26 @@
             </div>
             <!-- /.container -->
         </section>
+
+        <% @seasons.each do |season| %>
+            <section class="content-block team-1 team-1-1" >
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12" syle="background-color: #fff">
+                          <h1><%= season.name %> - $<%= season.price %></h1>
+                          <p> <%= season.description %> </p>
+                          <%= render "form",
+                            amount: season.price * 100,
+                            event_id1: season.id,
+                            event_id2: nil,
+                            name: season.name,
+                            is_season: true
+                          %>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <% end %>
+
     </body>
 </html>
